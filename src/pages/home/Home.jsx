@@ -1,9 +1,9 @@
-import bannerComp from "../../components/banner/banner.jsx";
+import BannerComp from "../../components/banner/Banner";
 
 const Home = () => {
     return (
         <>
-            <bannerComp />
+            <BannerComp />
         </>
     );
 };
