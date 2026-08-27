@@ -1,12 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import BannerComp from '../../components/banner/banner';
-import stoneImg from '../../assets/img/stone.svg';
-import parchmentImg from '../../assets/img/parchment.svg';
-import bannerImg from '../../assets/img/banner.svg';
-import lanternImg from '../../assets/img/lantern.svg';
-import marketImg from '../../assets/img/market.svg';
-import sealImg from '../../assets/img/seal.svg';
+import stoneImg from '../../assets/img/stone.jpg';
+import parchmentImg from '../../assets/img/parchment.jpg';
+import bannerImg from '../../assets/img/banner.png';
+import lanternImg from '../../assets/img/lantern.png';
+import marketImg from '../../assets/img/market.jpg';
+import sealImg from '../../assets/img/seal.png';
 import './Home.css';
 
 const VIRTUDES = [
@@ -20,9 +20,9 @@ const Home = () => {
         <div
             className="home-medieval-shell"
             style={{
-                backgroundColor: '#181614',
+                backgroundColor: 'oklch(0.19 0.012 60)',
                 backgroundImage: `url(${stoneImg})`,
-                backgroundSize: '400px',
+                backgroundSize: '620px',
                 backgroundRepeat: 'repeat'
             }}
         >
@@ -62,7 +62,7 @@ const Home = () => {
                         className="parchment-panel"
                         style={{
                             backgroundImage: `url(${parchmentImg})`,
-                            backgroundSize: '800px',
+                            backgroundSize: '1600px',
                             backgroundRepeat: 'repeat'
                         }}
                     >
