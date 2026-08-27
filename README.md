@@ -141,3 +141,15 @@ Para ejecutar el proyecto en tu entorno local, sigue estos pasos:
 - **Conventional Commits:** `feat:`, `fix:`, `docs:`, `style:`, `refactor:`, `chore:`.
 - **Conventional Branches:** `feature/nombre-funcionalidad`, `fix/nombre-bug`.
 - **Clean Code:** Componentes modulares, reutilizables y separación clara de responsabilidades.
+
+---
+
+## 👥 Integrantes del Proyecto
+
+| Nombre | GitHub |
+| :--- | :--- |
+| **Mauricio Rodríguez** | [@mxu-init](https://github.com/mxu-init) |
+| **William Hernández** | [@wfhgdev](https://github.com/wfhgdev) |
+| **Kanstantsin Mlechka** | [@kvadrakola](https://github.com/kvadrakola) |
+| **Óscar Pérez** | [@oscarperezGR](https://github.com/oscarperezGR) |
+| **Marisa Ruiz** | [@Marisa-Ruiz](https://github.com/Marisa-Ruiz) |
