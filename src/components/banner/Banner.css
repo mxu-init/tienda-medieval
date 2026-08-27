@@ -1,0 +1,129 @@
+.dynamicBannerContainer {
+    background: linear-gradient(135deg, #111116, #1e1e24);
+    color: #ffffff;
+    padding: 40px;
+    border-radius: 16px;
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    box-shadow: 010px30px rgba(0, 0, 0, 0.5);
+}
+
+.bannerWrapper {
+    overflow: hidden;
+    min-height: 300px;
+}
+
+.bannerCardActive {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    text-align: left;
+    animation: fadeIn0.5s ease-in-out;
+}
+
+.bannerImageWrapper {
+    flex: 1;
+    max-width: 350px;
+}
+
+.bannerImage {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 04px20px rgba(0, 0, 0, 0.4);
+}
+
+.bannerInfo {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.premiumBadge {
+    background: #ffbe0b;
+    color: #000000;
+    font-size: 0.75rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 4px8px;
+    border-radius: 4px;
+    width: max-content;
+    margin-bottom: 15px;
+}
+
+.productTitle {
+    font-size: 2rem;
+    margin: 0015px0;
+    line-height: 1.2;
+}
+
+.productPrice {
+    color: #ffbe0b;
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin: 0020px0;
+}
+
+.bannerButton {
+    display: inline-block;
+    background: #ff595e;
+    color: #ffffff;
+    padding: 12px24px;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: bold;
+    width: max-content;
+    transition: background0.2s ease;
+}
+
+.bannerButton:hover {
+    background: #ff333a;
+}
+
+/* Indicadores inferiores */
+.bannerIndicators {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 25px;
+}
+
+.indicatorDot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #555566;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    transition: background0.3s ease, transform0.3s ease;
+}
+
+.activeDot {
+    background: #ffbe0b;
+    transform: scale(1.3);
+}
+
+/* Animación de entrada para el cambio de producto */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(5px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.loadingState,
+.errorState {
+    text-align: center;
+    padding: 40px;
+    font-size: 1.2rem;
+    color: #ffffff;
+}
