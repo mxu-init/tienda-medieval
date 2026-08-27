@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import BannerComp from '../../components/Bannerx/Bannerx';
+import BannerComp from '../../components/Banner/Banner';
 import stoneImg from '../../assets/img/stone.jpg';
 import parchmentImg from '../../assets/img/parchment.jpg';
 import bannerImg from '../../assets/img/banner.png';
