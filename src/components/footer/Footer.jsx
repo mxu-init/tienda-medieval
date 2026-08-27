@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import ribbon from '../../assets/img/ribbon.png';
+import ribbon from '../../assets/img/seal.png';
 import './Footer.css';
 
 
