@@ -70,7 +70,7 @@ const Footer = () => {
                 Open-Meteo
               </a>
             </li>
-            <li>Forjado con React, TanStack Start y Tailwind.</li>
+            <li>Forjado con React.</li>
           </ul>
         </div>
       </div>
