@@ -84,60 +84,58 @@ const bannerComp = () => {
             onMouseLeave={() => setIsPaused(false)}
         >
             <div className="bannerOuterFrame">
-                <div className="bannerInnerFrame">
-                    <article key={activeProduct.id} className="bannerCardActive">
-                        <div className="bannerImageWrapper">
-                            <img
-                                src={activeProduct.images[0]}
-                                alt={activeProduct.title}
-                                className="bannerImage"
-                            />
-                        </div>
-                        <div className="bannerInfo">
-                            <span className="premiumBadge">
-                                ✦ {activeProduct.category?.name || 'MERCANCÍA PRECIADA'}
-                            </span>
-                            <h2 className="productTitle">{activeProduct.title}</h2>
-                            <p className="productPrice">
-                                <span className="priceAmount">{activeProduct.price}</span>{' '}
-                                <span className="priceCurrency">MONEDAS DE ORO</span>
-                            </p>
+                <article key={activeProduct.id} className="bannerCardActive">
+                    <div className="bannerImageWrapper">
+                        <img
+                            src={activeProduct.images[0]}
+                            alt={activeProduct.title}
+                            className="bannerImage"
+                        />
+                    </div>
+                    <div className="bannerInfo">
+                        <span className="premiumBadge">
+                            + {activeProduct.category?.name || 'CLOTHES'}
+                        </span>
+                        <h2 className="productTitle">{activeProduct.title}</h2>
+                        <p className="productPrice">
+                            <span className="priceAmount">{activeProduct.price}</span>{' '}
+                            <span className="priceCurrency">MONEDAS DE ORO</span>
+                        </p>
 
-                            <div className="bannerActions">
-                                <Link to={`/product/${activeProduct.id}`} className="bannerButton">
-                                    VER EN LA TIENDA
-                                </Link>
-                                <div className="arrowControls">
-                                    <button
-                                        className="navArrowBtn"
-                                        onClick={handlePrev}
-                                        aria-label="Anterior"
-                                    >
-                                        ‹
-                                    </button>
-                                    <button
-                                        className="navArrowBtn"
-                                        onClick={handleNext}
-                                        aria-label="Siguiente"
-                                    >
-                                        ›
-                                    </button>
-                                </div>
-                            </div>
-
-                            <div className="bannerIndicators">
-                                {premiumProducts.map((_, index) => (
-                                    <button
-                                        key={index}
-                                        className={`indicatorDot ${index === currentIndex ? 'activeDot' : ''}`}
-                                        onClick={() => setCurrentIndex(index)}
-                                        aria-label={`Ir a la diapositiva ${index + 1}`}
-                                    />
-                                ))}
+                        <div className="bannerActions">
+                            <Link to={`/product/${activeProduct.id}`} className="bannerButton">
+                                VER EN LA TIENDA
+                            </Link>
+                            <div className="arrowControls">
+                                <button
+                                    className="navArrowBtn"
+                                    onClick={handlePrev}
+                                    aria-label="Anterior"
+                                >
+                                    ‹
+                                </button>
+                                <button
+                                    className="navArrowBtn"
+                                    onClick={handleNext}
+                                    aria-label="Siguiente"
+                                >
+                                    ›
+                                </button>
                             </div>
                         </div>
-                    </article>
-                </div>
+
+                        <div className="bannerIndicators">
+                            {premiumProducts.map((_, index) => (
+                                <button
+                                    key={index}
+                                    className={`indicatorDot ${index === currentIndex ? 'activeDot' : ''}`}
+                                    onClick={() => setCurrentIndex(index)}
+                                    aria-label={`Ir a la diapositiva ${index + 1}`}
+                                />
+                            ))}
+                        </div>
+                    </div>
+                </article>
             </div>
         </section>
     );
