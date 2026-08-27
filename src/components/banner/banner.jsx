@@ -41,6 +41,18 @@ const bannerComp = () => {
         fetchBannerProducts();
     }, []);
 
+    const handlePrev = () => {
+        setCurrentIndex((previousIndex) =>
+            previousIndex === 0 ? premiumProducts.length - 1 : previousIndex - 1
+        );
+    };
+
+    const handleNext = () => {
+        setCurrentIndex((previousIndex) =>
+            previousIndex === premiumProducts.length - 1 ? 0 : previousIndex + 1
+        );
+    };
+
     useEffect(() => {
         if (isLoading || hasError || premiumProducts.length === 0 || isPaused) {
             return;
@@ -59,8 +71,8 @@ const bannerComp = () => {
         return () => clearInterval(timerId);
     }, [isLoading, hasError, premiumProducts, isPaused]);
 
-    if (isLoading) return <div className="loadingState">Loading exclusive offers...</div>;
-    if (hasError) return <div className="errorState">Unable to load premium products.</div>;
+    if (isLoading) return <div className="loadingState">Cargando mercancías de valor...</div>;
+    if (hasError) return <div className="errorState">No se pudieron cargar los productos del reino.</div>;
     if (premiumProducts.length === 0) return null;
 
     const activeProduct = premiumProducts[currentIndex];
@@ -71,35 +83,61 @@ const bannerComp = () => {
             onMouseEnter={() => setIsPaused(true)}
             onMouseLeave={() => setIsPaused(false)}
         >
-            <div className="bannerWrapper">
-                <article key={activeProduct.id} className="bannerCardActive">
-                    <div className="bannerImageWrapper">
-                        <img
-                            src={activeProduct.images[0]}
-                            alt={activeProduct.title}
-                            className="bannerImage"
-                        />
-                    </div>
-                    <div className="bannerInfo">
-                        <span className="premiumBadge">Premium Selection</span>
-                        <h2 className="productTitle">{activeProduct.title}</h2>
-                        <p className="productPrice">${activeProduct.price}</p>
-                        <Link to={`/product/${activeProduct.id}`} className="bannerButton">
-                            Buy Now
-                        </Link>
-                    </div>
-                </article>
-            </div>
+            <div className="bannerOuterFrame">
+                <div className="bannerInnerFrame">
+                    <article key={activeProduct.id} className="bannerCardActive">
+                        <div className="bannerImageWrapper">
+                            <img
+                                src={activeProduct.images[0]}
+                                alt={activeProduct.title}
+                                className="bannerImage"
+                            />
+                        </div>
+                        <div className="bannerInfo">
+                            <span className="premiumBadge">
+                                ✦ {activeProduct.category?.name || 'MERCANCÍA PRECIADA'}
+                            </span>
+                            <h2 className="productTitle">{activeProduct.title}</h2>
+                            <p className="productPrice">
+                                <span className="priceAmount">{activeProduct.price}</span>{' '}
+                                <span className="priceCurrency">MONEDAS DE ORO</span>
+                            </p>
 
-            <div className="bannerIndicators">
-                {premiumProducts.map((_, index) => (
-                    <button
-                        key={index}
-                        className={`indicatorDot ${index === currentIndex ? 'activeDot' : ''}`}
-                        onClick={() => setCurrentIndex(index)}
-                        aria-label={`Go to slide ${index + 1}`}
-                    />
-                ))}
+                            <div className="bannerActions">
+                                <Link to={`/product/${activeProduct.id}`} className="bannerButton">
+                                    VER EN LA TIENDA
+                                </Link>
+                                <div className="arrowControls">
+                                    <button
+                                        className="navArrowBtn"
+                                        onClick={handlePrev}
+                                        aria-label="Anterior"
+                                    >
+                                        ‹
+                                    </button>
+                                    <button
+                                        className="navArrowBtn"
+                                        onClick={handleNext}
+                                        aria-label="Siguiente"
+                                    >
+                                        ›
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div className="bannerIndicators">
+                                {premiumProducts.map((_, index) => (
+                                    <button
+                                        key={index}
+                                        className={`indicatorDot ${index === currentIndex ? 'activeDot' : ''}`}
+                                        onClick={() => setCurrentIndex(index)}
+                                        aria-label={`Ir a la diapositiva ${index + 1}`}
+                                    />
+                                ))}
+                            </div>
+                        </div>
+                    </article>
+                </div>
             </div>
         </section>
     );
