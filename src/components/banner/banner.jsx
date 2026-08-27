@@ -2,9 +2,9 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 
-const API_URL = 'https://api.escuelajs.co/api/v1/products';
-const MAX_BANNER_ITEMS = 5;
-const CAROUSEL_INTERVAL_MS = 3000;
+const apiUrl = 'https://api.escuelajs.co/api/v1/products';
+const MaxBannerItems = 5;
+const CarouselIntervalMs = 3000;
 
 const DynamicBanner = () => {
     const [premiumProducts, setPremiumProducts] = useState([]);
@@ -26,8 +26,8 @@ const DynamicBanner = () => {
     useEffect(() => {
         const fetchBannerProducts = async () => {
             try {
-                const response = await axios.get(API_URL);
-                const expensiveItems = getTopExpensiveProducts(response.data, MAX_BANNER_ITEMS);
+                const response = await axios.get(apiUrl);
+                const expensiveItems = getTopExpensiveProducts(response.data, MaxBannerItems);
 
                 setPremiumProducts(expensiveItems);
             } catch (error) {
@@ -51,7 +51,7 @@ const DynamicBanner = () => {
                 setCurrentIndex((previousIndex) =>
                     previousIndex === premiumProducts.length - 1 ? 0 : previousIndex + 1
                 );
-            }, CAROUSEL_INTERVAL_MS);
+            }, CarouselIntervalMs);
         };
 
         const timerId = startCarouselTimer();
