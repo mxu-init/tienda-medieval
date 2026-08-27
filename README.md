@@ -11,9 +11,9 @@ Proyecto desarrollado para el **Bootcamp**, consistente en una plataforma e-comm
 
 ## 📌 Enlaces del Proyecto (Entregables)
 
-- 🎨 **Diseño en Figma:** [Enlace público a Figma (Modo Lectura)](https://figma.com/) *(Añadir enlace)*
-- 🚀 **Despliegue en Vercel:** [Mercatum Regni en Vercel](https://tienda-medieval.vercel.app/) *(Añadir enlace)*
-- 📦 **Repositorio GitHub:** [GitHub Repository](https://github.com/) *(Añadir enlace)*
+- 🎨 **Diseño en Lovable:** [Enlace público a Lovable (Modo Lectura)](https://arcane-merchant-script.lovable.app/)
+- 🚀 **Despliegue en Vercel:** [Mercatum Regni en Vercel](https://tienda-medieval.vercel.app/)
+- 📦 **Repositorio GitHub:** [GitHub Repository](https://github.com/mxu-init/tienda-medieval)
 
 ---
 
@@ -152,4 +152,4 @@ Para ejecutar el proyecto en tu entorno local, sigue estos pasos:
 | **William Hernández** | [@wfhgdev](https://github.com/wfhgdev) |
 | **Kanstantsin Mlechka** | [@kvadrakola](https://github.com/kvadrakola) |
 | **Óscar Pérez** | [@oscarperezGR](https://github.com/oscarperezGR) |
-| **Marisa Ruiz** | [@Marisa-Ruiz](https://github.com/Marisa-Ruiz) |
+| **Marisa Ruiz** | [@Marisa-Ruiz](https://github.com/Marisa-Ruiz) |
