@@ -3,10 +3,10 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 
 const apiUrl = 'https://api.escuelajs.co/api/v1/products';
-const MaxBannerItems = 5;
-const CarouselIntervalMs = 3000;
+const maxBannerItems = 5;
+const carouselIntervalMs = 3000;
 
-const DynamicBanner = () => {
+const bannerComp = () => {
     const [premiumProducts, setPremiumProducts] = useState([]);
     const [currentIndex, setCurrentIndex] = useState(0);
     const [isLoading, setIsLoading] = useState(true);
@@ -22,12 +22,11 @@ const DynamicBanner = () => {
         return sortedProducts.slice(0, limit);
     };
 
-    // Efecto 1: Carga de datos de la API
     useEffect(() => {
         const fetchBannerProducts = async () => {
             try {
                 const response = await axios.get(apiUrl);
-                const expensiveItems = getTopExpensiveProducts(response.data, MaxBannerItems);
+                const expensiveItems = getTopExpensiveProducts(response.data, maxBannerItems);
 
                 setPremiumProducts(expensiveItems);
             } catch (error) {
@@ -51,7 +50,7 @@ const DynamicBanner = () => {
                 setCurrentIndex((previousIndex) =>
                     previousIndex === premiumProducts.length - 1 ? 0 : previousIndex + 1
                 );
-            }, CarouselIntervalMs);
+            }, carouselIntervalMs);
         };
 
         const timerId = startCarouselTimer();
@@ -105,4 +104,4 @@ const DynamicBanner = () => {
     );
 };
 
-export default DynamicBanner;
+export default bannerComp;
