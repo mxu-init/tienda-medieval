@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600">
+  <defs>
+    <filter id="engraving">
+      <feColorMatrix type="matrix" values="0.33 0.33 0.33 0 0  0.33 0.33 0.33 0 0  0.33 0.33 0.33 0 0  0 0 0 1 0"/>
+    </filter>
+    <pattern id="hatch" width="8" height="8" patternUnits="userSpaceOnUse">
+      <path d="M-1,1 L1,-1 M0,8 L8,0 M7,9 L9,7" stroke="#2b1a0e" stroke-width="1.2" opacity="0.35"/>
+    </pattern>
+  </defs>
+
+  <rect width="800" height="600" fill="#eddcc4"/>
+  <rect width="800" height="600" fill="url(#hatch)"/>
+
+  <!-- Background Medieval Timber Houses & Towers -->
+  <g stroke="#3a2514" stroke-width="2" fill="none">
+    <!-- Left Timber House -->
+    <polygon points="30,400 30,220 130,140 230,220 230,400" fill="#d9c2a3"/>
+    <path d="M 30 220 L 230 220 M 130 140 L 130 220 M 80 220 L 80 400 M 180 220 L 180 400 M 30 310 L 230 310"/>
+    <rect x="90" y="240" width="35" height="45" fill="#3a2514"/>
+    <rect x="155" y="240" width="35" height="45" fill="#3a2514"/>
+
+    <!-- Middle Cathedral Spire & Castle Wall -->
+    <rect x="230" y="180" width="340" height="220" fill="#ccb595"/>
+    <polygon points="320,180 370,40 420,180" fill="#4a321c"/>
+    <path d="M 230 200 L 570 200 M 230 250 L 570 250 M 230 300 L 570 300"/>
+
+    <!-- Right Tower -->
+    <polygon points="570,400 570,190 680,120 770,190 770,400" fill="#d9c2a3"/>
+    <path d="M 570 190 L 770 190 M 670 120 L 670 400 M 620 190 L 620 400 M 720 190 L 720 400"/>
+  </g>
+
+  <!-- Foreground Market Canopy Stalls & Barrels -->
+  <g stroke="#26170b" stroke-width="2.5">
+    <!-- Main Market Stall Canopy Stripes -->
+    <path d="M 80 340 Q 400 300 720 340 L 750 420 Q 400 370 50 420 Z" fill="#691a18"/>
+    <path d="M 150 330 L 140 415 M 270 315 L 260 400 M 390 310 L 380 390 M 510 312 L 515 395 M 630 325 L 640 410" stroke="#f0d9b5" stroke-width="12"/>
+
+    <!-- Wooden Counter & Merchant Goods -->
+    <rect x="70" y="420" width="660" height="30" fill="#54381e"/>
+    <rect x="90" y="450" width="620" height="120" fill="#3b2613"/>
+
+    <!-- Goods on display: Weapons, Scrolls, Potions, Helmets -->
+    <!-- Sword -->
+    <path d="M 120 380 L 220 415" stroke="#d4af37" stroke-width="6"/>
+    <path d="M 125 382 L 215 413" stroke="#fff" stroke-width="2"/>
+    <!-- Shield -->
+    <path d="M 260 370 C 260 410 310 430 310 430 C 310 430 360 410 360 370 Z" fill="#7a1815" stroke="#ffd700" stroke-width="3"/>
+    <!-- Books / Scrolls -->
+    <rect x="400" y="380" width="60" height="35" rx="3" fill="#e3c79e" stroke="#4a2e16"/>
+    <rect x="480" y="375" width="55" height="40" rx="3" fill="#8c2b18" stroke="#4a2e16"/>
+    <!-- Potion Bottles -->
+    <ellipse cx="580" cy="400" rx="14" ry="18" fill="#1b5e20" stroke="#000"/>
+    <rect x="576" y="375" width="8" height="12" fill="#d4af37"/>
+    <ellipse cx="620" cy="395" rx="16" ry="20" fill="#b71c1c" stroke="#000"/>
+    <rect x="616" y="368" width="8" height="12" fill="#d4af37"/>
+
+    <!-- Wooden Barrels on Foreground -->
+    <ellipse cx="140" cy="530" rx="40" ry="45" fill="#54381e" stroke="#1c1006"/>
+    <line x1="100" y1="515" x2="180" y2="515" stroke="#000" stroke-width="4"/>
+    <line x1="100" y1="545" x2="180" y2="545" stroke="#000" stroke-width="4"/>
+
+    <ellipse cx="660" cy="530" rx="40" ry="45" fill="#54381e" stroke="#1c1006"/>
+    <line x1="620" y1="515" x2="700" y2="515" stroke="#000" stroke-width="4"/>
+    <line x1="620" y1="545" x2="700" y2="545" stroke="#000" stroke-width="4"/>
+  </g>
+
+  <!-- Engraving Border Frame -->
+  <rect x="10" y="10" width="780" height="580" fill="none" stroke="#3b2412" stroke-width="6"/>
+  <rect x="18" y="18" width="764" height="564" fill="none" stroke="#3b2412" stroke-width="1.5"/>
+</svg>
