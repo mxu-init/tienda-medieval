@@ -1,0 +1,28 @@
+.weatherWidget {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 16px;
+    border: 1px solid #6c1613;
+    background: rgba(108, 22, 19, 0.08);
+    font-family: 'Cinzel', serif;
+    color: #ebd7b9;
+    white-space: nowrap;
+}
+
+.weatherText {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.3;
+}
+
+.weatherMainLine {
+    font-size: 0.95rem;
+    font-weight: 600;
+}
+
+.weatherSubLine {
+    font-size: 0.7rem;
+    color: #c9b98c;
+    letter-spacing: 0.3px;
+}
