@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from "react-router-dom";
-import Watherwidget from '../Watherwidget/Watherwidget';
+import Watherwidget from '../Weatherwidget/Watherwidget';
 import './Header.css';
 
 const navLinks = [

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import './Watherwidget.css';
+import './Weatherwidget.css';
 
 // Coordenadas de respaldo si el usuario no da permiso de ubicación (Madrid)
 const fallbackCoords = { latitude: 40.4168, longitude: -3.7038 };
