@@ -17,3 +17,8 @@ Carpetas:
 Componentes: Tanto el nombre de la carpeta, como de los archivos .css y .jsx de los componentes deberán estar escritos en Pascal Case y en inglés
 
 Importante: Todos los nombres de variables, clases, y archivos (incluidas las imágenes) deberán estar en inglés y camel case.
+
+- We need to use javascript, not typescript.
+- Libraries: Axios, React-Router-DOM, Vite
+- Las imágenes deberán estar físicamente dentro del proyecto, no enlazadas
+- WCAG compliance
