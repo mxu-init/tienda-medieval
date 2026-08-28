@@ -13,7 +13,7 @@ Proyecto desarrollado para el **Bootcamp**, consistente en una plataforma e-comm
 
 - 🎨 **Diseño en Lovable:** [Enlace público a Lovable (Modo Lectura)](https://arcane-merchant-script.lovable.app/)
 - 🚀 **Despliegue en Vercel:** [Mercatum Regni en Vercel](https://tienda-medieval.vercel.app/)
-- 📦 **Repositorio GitHub:** [GitHub Repository](https://github.com/mxu-init/tienda-medieval)
+- 📦 **Repositorio GitHub:** [GitHub Repository](https://github.com/mxu-init/tienda-medieval.git)
 
 ---
 
@@ -115,7 +115,7 @@ Para ejecutar el proyecto en tu entorno local, sigue estos pasos:
 
 1. **Clonar el repositorio:**
    ```bash
-   git clone https://github.com/tu-usuario/tienda-medieval.git
+   git clone https://github.com/mxu-init/tienda-medieval.git
    cd tienda-medieval
    ```
 
