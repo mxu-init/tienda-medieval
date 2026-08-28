@@ -18,7 +18,7 @@ const VIRTUDES = [
 const Home = () => {
     return (
         <div
-            className="home-medieval-shell"
+            className="homeMedievalShell"
             style={{
                 backgroundColor: 'oklch(0.19 0.012 60)',
                 backgroundImage: `url(${stoneImg})`,
@@ -26,59 +26,59 @@ const Home = () => {
                 backgroundRepeat: 'repeat'
             }}
         >
-            <div className="home-overlay">
+            <div className="homeOverlay">
                 {/* Mobile Heraldry Header (below lg screens) */}
-                <div className="mobile-heraldry">
+                <div className="mobileHeraldry">
                     <img
                         src={bannerImg}
                         alt="Estandarte con león rampante dorado"
-                        className="mobile-banner-img"
+                        className="mobileBannerImg"
                     />
                     <img
                         src={lanternImg}
                         alt="Farol de latón"
-                        className="mobile-lantern-img"
+                        className="mobileLanternImg"
                     />
                 </div>
 
-                <div className="home-layout-body">
+                <div className="homeLayoutBody">
                     {/* Left Rail Sidebar (lg screens) */}
-                    <aside className="left-rail">
+                    <aside className="leftRail">
                         <img
                             src={bannerImg}
                             alt="Estandarte con león rampante dorado"
-                            className="left-rail-banner"
+                            className="leftRailBanner"
                         />
-                        <span className="left-rail-lantern-glow" />
+                        <span className="leftRailLanternGlow" />
                         <img
                             src={lanternImg}
                             alt="Farol de latón"
-                            className="left-rail-lantern"
+                            className="leftRailLantern"
                         />
                     </aside>
 
                     {/* Main Parchment Surface Panel */}
                     <main
-                        className="parchment-panel"
+                        className="parchmentPanel"
                         style={{
                             backgroundImage: `url(${parchmentImg})`,
                             backgroundSize: '1600px',
                             backgroundRepeat: 'repeat'
                         }}
                     >
-                        <div className="parchment-content">
+                        <div className="parchmentContent">
                             {/* Page Header */}
-                            <header className="page-header">
-                                <span aria-hidden="true" className="vellum-wash" />
-                                <h1 className="page-title">Mercatum Regni</h1>
-                                <div className="ornament-divider">
-                                    <span className="ink-rule" />
+                            <header className="pageHeader">
+                                <span aria-hidden="true" className="vellumWash" />
+                                <h1 className="pageTitle">Mercatum Regni</h1>
+                                <div className="ornamentDivider">
+                                    <span className="inkRule" />
                                     <svg
                                         width="46"
                                         height="12"
                                         viewBox="0 0 46 12"
                                         fill="none"
-                                        className="ornament-svg"
+                                        className="ornamentSvg"
                                         aria-hidden="true"
                                     >
                                         <path
@@ -94,14 +94,14 @@ const Home = () => {
                                         <path d="M0 6h14M32 6h14" stroke="currentColor" strokeWidth="0.9" />
                                         <path d="M15.5 4l2 2-2 2M30.5 4l-2 2 2 2" stroke="currentColor" strokeWidth="0.9" />
                                     </svg>
-                                    <span className="ink-rule" />
+                                    <span className="inkRule" />
                                 </div>
                             </header>
 
                             {/* Top Featured Goods Section / Banner Carousel Component */}
-                            <div className="banner-carousel-section">
-                                <div className="vellum-box banner-heading-box">
-                                    <h2 className="section-subtitle">
+                            <div className="bannerCarouselSection">
+                                <div className="vellumBox bannerHeadingBox">
+                                    <h2 className="sectionSubtitle">
                                         Las cinco mercancías más preciadas
                                     </h2>
                                 </div>
@@ -109,8 +109,8 @@ const Home = () => {
                             </div>
 
                             {/* Market Welcome Intro Section */}
-                            <div className="welcome-grid">
-                                <div className="vellum-box intro-text-box">
+                            <div className="welcomeGrid">
+                                <div className="vellumBox introTextBox">
                                     <p>
                                         Bienvenido al mercado del reino, donde mercaderes y artesanos exponen sus
                                         mejores obras bajo el amparo del gremio.
@@ -119,58 +119,58 @@ const Home = () => {
                                         Armas forjadas, arneses, libros iluminados y remedios de botica esperan al
                                         viajero que cruce nuestras puertas.
                                     </p>
-                                    <div className="action-buttons-group">
-                                        <Link to="/tienda" className="ink-btn-link">
-                                            <button type="button" className="ink-button ink-button-solid">
+                                    <div className="actionButtonsGroup">
+                                        <Link to="/tienda" className="inkBtnLink">
+                                            <button type="button" className="inkButton inkButtonSolid">
                                                 Visitar la tienda
                                             </button>
                                         </Link>
-                                        <Link to="/vendedores" className="ink-btn-link">
-                                            <button type="button" className="ink-button ink-button-outline">
+                                        <Link to="/vendedores" className="inkBtnLink">
+                                            <button type="button" className="inkButton inkButtonOutline">
                                                 Conocer el gremio
                                             </button>
                                         </Link>
                                     </div>
                                 </div>
 
-                                <div className="market-img-wrapper">
+                                <div className="marketImgWrapper">
                                     <img
                                         src={marketImg}
                                         alt="Grabado de un puesto de mercado medieval"
-                                        className="market-engraving-img"
+                                        className="marketEngravingImg"
                                     />
                                 </div>
                             </div>
 
                             {/* Virtues Cards Section */}
-                            <div className="virtues-grid">
+                            <div className="virtuesGrid">
                                 {VIRTUDES.map((v) => (
-                                    <article key={v.t} className="parchment-card">
-                                        <span className="card-inner-frame" />
-                                        <div className="card-content">
-                                            <h3 className="card-title">{v.t}</h3>
-                                            <p className="card-desc">{v.d}</p>
+                                    <article key={v.t} className="parchmentCard">
+                                        <span className="cardInnerFrame" />
+                                        <div className="cardContent">
+                                            <h3 className="cardTitle">{v.t}</h3>
+                                            <p className="cardDesc">{v.d}</p>
                                         </div>
                                     </article>
                                 ))}
                             </div>
 
                             {/* Seal Divider Section */}
-                            <div className="seal-divider-wrapper">
-                                <div className="seal-divider">
-                                    <span className="ink-rule divider-rule" />
-                                    <svg width="16" height="10" viewBox="0 0 16 10" className="divider-diamond" aria-hidden="true">
+                            <div className="sealDividerWrapper">
+                                <div className="sealDivider">
+                                    <span className="inkRule dividerRule" />
+                                    <svg width="16" height="10" viewBox="0 0 16 10" className="dividerDiamond" aria-hidden="true">
                                         <path d="M8 0l4 5-4 5-4-5z" fill="currentColor" opacity=".7" />
                                     </svg>
                                     <img
                                         src={sealImg}
                                         alt="Sello de cera de Mercatum Regni"
-                                        className="seal-img"
+                                        className="sealImg"
                                     />
-                                    <svg width="16" height="10" viewBox="0 0 16 10" className="divider-diamond" aria-hidden="true">
+                                    <svg width="16" height="10" viewBox="0 0 16 10" className="dividerDiamond" aria-hidden="true">
                                         <path d="M8 0l4 5-4 5-4-5z" fill="currentColor" opacity=".7" />
                                     </svg>
-                                    <span className="ink-rule divider-rule" />
+                                    <span className="inkRule dividerRule" />
                                 </div>
                             </div>
                         </div>
