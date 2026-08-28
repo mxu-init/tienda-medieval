@@ -76,8 +76,8 @@ tienda-medieval/
 │   ├── assets/
 │   │   └── img/           # Imágenes y texturas (stone.jpg, parchment.jpg, banner.png, lantern.png, seal.png, market.jpg)
 │   ├── components/
-│   │   ├── banner/        # Componente de Banner dinámico (5 productos más caros)
-│   │   └── header/        # Componente Header (Navegación + Widget del clima)
+│   │   ├── Banner/        # Componente de Banner dinámico (5 productos más caros)
+│   │   └── Header/        # Componente Header (Navegación + Widget del clima)
 │   ├── data/              # Constantes y datos auxiliares
 │   ├── pages/
 │   │   └── home/          # Página de inicio Mercatum Regni (Home.jsx & Home.css)
