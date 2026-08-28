@@ -34,7 +34,7 @@ El proyecto sigue una arquitectura web moderna con **React** y **Vite**, complem
 
 ---
 
-## ✨ Funcionalidades y Páginas Mínimas Viables (MVP)
+## ✨ Funcionalidades y Páginas
 
 1. 🏰 **Portal Principal de Bienvenida (Home):**
    - **Banner Dinámico Interactivo:** Consulta y calcula las 5 mercancías de mayor valor/precio en tiempo real consumiendo la API de productos.
