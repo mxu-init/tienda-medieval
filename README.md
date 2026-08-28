@@ -98,14 +98,17 @@ tienda-medieval/
 
 - 🚀 **Sprint 1 (Viernes 28 de Agosto):**
   - Configuración inicial del repositorio React + Vite.
-  - Maquetación del prototipo medieval en Figma.
+  - Maquetación del prototipo medieval en Lovable.
   - Implementación del Banner dinámico y diseño de la página de Inicio (Home).
-  - Estructura base de Header, Main y Footer.
-- 🏁 **Sprint 2 y Entrega Final (Viernes 4 de Septiembre):**
   - Integración del Widget de Clima en tiempo real en el Header.
+  - Estructura base de Header, Main y Footer.
+  - Planificación de tareas en Jira.
+  - Despliegue en Vercel.
+
+- 🏁 **Sprint 2 y Entrega Final (Viernes 4 de Septiembre):**
   - Desarrollo completo del CRUD de Productos y Usuarios.
   - Finalización de las páginas de Vendedores e Historia.
-  - Despliegue en Vercel, auditoría de Clean Code y validación de entregables.
+  - Auditoría de Clean Code y validación de entregables.
 
 ---
 
@@ -138,7 +141,7 @@ Para ejecutar el proyecto en tu entorno local, sigue estos pasos:
 
 ## 🤝 Convenciones y Calidad de Código
 
-- **Conventional Commits:** `feat:`, `fix:`, `docs:`, `style:`, `refactor:`, `chore:`.
+- **Conventional Commits:** `feature:`, `fix:`, `docs:`, `style:`.
 - **Conventional Branches:** `feature/nombre-funcionalidad`, `fix/nombre-bug`.
 - **Clean Code:** Componentes modulares, reutilizables y separación clara de responsabilidades.
 
