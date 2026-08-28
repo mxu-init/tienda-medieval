@@ -61,7 +61,7 @@ El proyecto sigue una arquitectura web moderna con **React** y **Vite**, complem
 - **APIs Consumidas:**
   - 🛒 **Productos:** [Platzi Fake Store API - Products](https://fakeapi.platzi.com/)
   - 👤 **Usuarios:** [Platzi Fake Store API - Users](https://fakeapi.platzi.com/)
-  - 🌤️ **Clima en tiempo real:** Open-Meteo / Weather API (integrada en el Header).
+  - 🌤️ **Clima en tiempo real:** [Open-Meteo Weather API](https://open-meteo.com/en/docs)
 
 ---
 
