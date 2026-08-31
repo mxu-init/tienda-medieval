@@ -1,6 +1,6 @@
 # Guía de Estándares y Convenciones de Desarrollo Web
 
-Este documento establece las normas obligatorias de desarrollo y organización del código para el equipo de desarrollo. Su cumplimiento es **estricto** para garantizar la mantenibilidad, escalabilidad y coherencia de todos nuestros proyectos React/Vite.
+Este documento establece las normas obligatorias de desarrollo y organización del código para el equipo. Su cumplimiento es **estricto** para garantizar la mantenibilidad, escalabilidad y coherencia de todos nuestros proyectos React/Vite.
 
 ---
 
@@ -16,7 +16,7 @@ Este documento establece las normas obligatorias de desarrollo y organización d
 
 ## 2. Estructura de Proyecto y Carpeteo
 
-La arquitectura del proyecto sigue un enfoque modular basado en componentes y páginas.
+La arquitectura del proyecto sigue un enfoque modular basado en componentes, páginas y servicios.
 
 ```text
 src/
@@ -29,7 +29,10 @@ src/
 │   └── products/
 │       ├── Products.jsx
 │       └── Products.css
-├── index.css           # Estilos globales de me la aplicación
+├── services/           # Capa de API y peticiones HTTP centralizadas
+│   ├── api.js          # Instancia base de Axios e interceptores
+│   └── productService.js
+├── index.css           # Estilos globales de la aplicación
 └── main.jsx            # Punto de entrada de la aplicación
 
 ```
@@ -61,6 +64,8 @@ src/
 * El archivo `.css` debe tener **exactamente el mismo nombre** que el archivo `.jsx` al que acompaña (en PascalCase).
 * **Regla de encapsulamiento:** Usa clases específicas o módulos CSS para evitar que los estilos de un componente afecten accidentalmente a otros.
 
+
+
 ---
 
 ## 5. Gestión de Recursos Estáticos (Imágenes)
@@ -86,9 +91,47 @@ El stack oficial del proyecto está fijado. No se deben añadir librerías adici
 * `<Route element="{<UserProfile" path="/user-profile"/>} />`
 * `<Route element="{<ProductDetails" path="/product-details/:id"/>} />`
 
+
 ---
 
-## 7. Accesibilidad Web (WCAG Compliance)
+## 7. Buenas Prácticas y Métodos HTTP con Axios
+
+Para mantener una capa de red desacoplada, limpia y mantenible, se imponen las siguientes reglas al trabajar con peticiones HTTP:
+
+1. **Instancia Centralizada (`src/services/api.js`):**
+* Se prohíbe importar y usar la librería `axios` directa en los componentes React.
+* Toda llamada a la API debe realizarse mediante una instancia configurada con `axios.create()`, estableciendo `baseURL`, `timeout` y cabeceras base.
+
+
+2. **Capa de Servicios Dedicada:**
+* Las peticiones HTTP deben agruparse por dominio en archivos de servicio dentro de `src/services/` (ej. `productService.js`, `authService.js`).
+* Los componentes de UI únicamente deben llamar a estas funciones de servicio y gestionar el estado visual.
+
+
+3. **Uso Semántico de Métodos HTTP:**
+* **`GET`:** Uso exclusivo para consultar y recuperar información. No debe enviar cuerpo (*body*) ni alterar datos en el servidor.
+* **`POST`:** Uso para enviar datos y crear nuevos recursos en el servidor.
+* **`PUT` / `PATCH`:** Uso para actualización. `PUT` reemplaza la entidad completa; `PATCH` aplica modificaciones parciales.
+* **`DELETE`:** Uso exclusivo para eliminar recursos existentes.
+
+
+4. **Manejo de Respuestas, Asincronía y Errores:**
+* Todas las funciones de servicio deben usar la sintaxis `async/await` dentro de bloques `try...catch`.
+* Extraer únicamente `response.data` para retornarlo a la capa de UI.
+* Los errores devueltos por la API deben ser transformados y devueltos de forma clara para mostrar retroalimentación en español al usuario.
+
+
+5. **Interceptores de Axios y Integración con React Router DOM:**
+* Usar un *request interceptor* para inyectar automáticamente el token de autenticación (`Bearer token`) en las peticiones que lo requieran.
+* Usar un *response interceptor* para la captura global de errores HTTP. Ante respuestas de estado `401 Unauthorized` o `403 Forbidden`, se debe redirigir al usuario automáticamente a la ruta `/login` usando la configuración de navegación.
+
+
+6. **Cancelación de Peticiones en Componentes (Cleanup):**
+* Toda petición HTTP ejecutada dentro de un `useEffect` debe implementar la API nativa `AbortController` para cancelar la solicitud en caso de que el componente se desmonte antes de finalizar la respuesta.
+
+---
+
+## 8. Accesibilidad Web (WCAG Compliance)
 
 Es obligatorio construir componentes acordes a las pautas de accesibilidad **WCAG 2.1 (Nivel AA)**:
 
