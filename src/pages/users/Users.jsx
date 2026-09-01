@@ -5,6 +5,7 @@ import parchmentImg from '../../assets/img/parchment.jpg';
 import bannerImg from '../../assets/img/banner.png';
 import lanternImg from '../../assets/img/lantern.png';
 import sealImg from '../../assets/img/seal.png';
+import InkNotice from '../../components/InkNotice/InkNotice';
 import '../home/Home.css';
 import './Users.css';
 
@@ -159,18 +160,16 @@ const Users = () => {
               </div>
 
               {isLoading && (
-                <div className="usersNotice usersNoticeInfo" role="status">
-                  <p className="usersNoticeTitle">Abriendo el libro</p>
-                  <p>El escribano copia los registros…</p>
-                </div>
-              )}
+  <InkNotice title="Abriendo el libro">
+    El escribano copia los registros…
+  </InkNotice>
+)}
 
-              {errorMessage && !isLoading && (
-                <div className="usersNotice usersNoticeError" role="alert">
-                  <p className="usersNoticeTitle">El archivo no responde</p>
-                  <p>{errorMessage}</p>
-                </div>
-              )}
+{errorMessage && !isLoading && (
+  <InkNotice tone="error" title="El archivo no responde">
+    {errorMessage}
+  </InkNotice>
+)}
 
               {!isLoading && items.length > 0 && (
                 <div className="usersTableFrame">
