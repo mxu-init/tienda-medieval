@@ -1,235 +1,124 @@
 .productListContainer {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 28px;
   width: 100%;
-}
-
-.productListControls {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-end;
-  gap: 16px;
-  padding: 16px 20px;
-  background: rgba(245, 235, 215, 0.85);
-  border: 2px solid #8c6a38;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(20, 16, 12, 0.15);
-}
-
-.filterGroup {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  flex: 1;
-  min-width: 200px;
-}
-
-.filterLabel {
-  font-family: 'Cinzel', serif;
-  font-size: 0.85rem;
-  font-weight: 700;
-  color: #3b1b08;
-}
-
-.filterInput,
-.filterSelect {
-  padding: 8px 12px;
-  border: 2px solid #8c6a38;
-  border-radius: 6px;
-  background: #faf6ee;
-  color: #2b1800;
-  font-size: 0.9rem;
-}
-
-.filterInput:focus,
-.filterSelect:focus {
-  outline: none;
-  border-color: #6c1613;
-  box-shadow: 0 0 0 3px rgba(108, 22, 19, 0.2);
-}
-
-.viewToggleGroup {
-  display: flex;
-  gap: 4px;
-}
-
-.viewToggleBtn {
-  font-family: 'Cinzel', serif;
-  font-size: 0.82rem;
-  font-weight: 700;
-  padding: 8px 14px;
-  background: #d9c49c;
-  color: #4a2c00;
-  border: 1px solid #a88a54;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.viewToggleBtn:hover {
-  background: #ebd7b9;
-}
-
-.activeView {
-  background: #6c1613;
-  color: #ebd7b9;
-  border-color: #8c2825;
+  margin-top: 24px;
 }
 
 .productGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 20px;
+  align-items: start;
+  align-content: start;
 }
 
-.tableWrapper {
-  width: 100%;
-  overflow-x: auto;
-  border: 2px solid #8c6a38;
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(20, 16, 12, 0.2);
+@media (min-width: 768px) {
+  .productGrid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+  }
 }
 
-.productTable {
-  width: 100%;
-  border-collapse: collapse;
-  background: #f7efe2;
-  text-align: left;
+@media (min-width: 1200px) {
+  .productGrid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 24px;
+  }
 }
 
-.productTable th {
-  font-family: 'Cinzel', serif;
-  font-size: 0.88rem;
-  font-weight: 700;
-  background: #6c1613;
-  color: #ebd7b9;
-  padding: 12px 16px;
-  border-bottom: 2px solid #8c704b;
-}
-
-.productTable td {
-  padding: 12px 16px;
-  border-bottom: 1px solid #d9c49c;
-  color: #2b1800;
-  font-size: 0.9rem;
-}
-
-.productTable tbody tr:hover {
-  background: #ede1cb;
-}
-
-.tableId {
-  font-family: 'Cinzel', serif;
-  font-weight: 700;
-  color: #6c1613;
-}
-
-.tableProductImg {
-  width: 50px;
-  height: 50px;
-  border-radius: 6px;
-  object-fit: cover;
-  border: 2px solid #8c6a38;
-}
-
-.tableTitle {
-  font-weight: 700;
-  color: #3b1b08;
-}
-
-.tablePrice {
-  font-family: 'Cinzel', serif;
-  font-weight: 700;
-  color: #6c1613;
-}
-
-.tableCategory {
-  font-family: 'Cinzel', serif;
-  font-size: 0.8rem;
-  color: #59442a;
-}
-
-.tableActions {
-  display: flex;
-  gap: 6px;
-}
-
-.tableBtn {
-  font-family: 'Cinzel', serif;
-  font-size: 0.75rem;
-  font-weight: 700;
-  padding: 4px 8px;
-  border-radius: 4px;
-  cursor: pointer;
-  border: 1px solid transparent;
-}
-
-.productListEmpty,
-.productListLoading {
+.productListNotice {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 48px 24px;
-  background: rgba(247, 239, 226, 0.9);
-  border: 2px dashed #8c6a38;
-  border-radius: 8px;
   text-align: center;
-  color: #4a2c00;
-  font-family: 'Cinzel', serif;
-  font-size: 1.1rem;
+  padding: 36px 20px;
+  margin-top: 28px;
+  background-color: oklch(0.18 0.018 62 / 0.9);
+  border: 1px solid color-mix(in oklab, var(--gold) 35%, transparent);
+  box-shadow: inset 0 0 20px oklch(0 0 0 / 0.5);
 }
 
-.spinnerIcon {
-  width: 40px;
-  height: 40px;
-  border: 4px solid #d9c49c;
-  border-top-color: #6c1613;
+.productListNoticeTitle {
+  font-family: var(--font-display);
+  font-size: 20px;
+  letter-spacing: 0.08em;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.productListNoticeSubtitle {
+  font-family: var(--font-body);
+  font-size: 17px;
+  color: oklch(0.86 0.03 82 / 0.8);
+  margin: 8px 0 0;
+}
+
+.productListSpinner {
+  width: 36px;
+  height: 36px;
+  border: 3px solid color-mix(in oklab, var(--gold) 20%, transparent);
+  border-top-color: var(--gold);
   border-radius: 50%;
-  animation: spin 0.9s linear infinite;
-  margin-bottom: 12px;
+  animation: productSpin 0.9s linear infinite;
+  margin-bottom: 14px;
 }
 
-@keyframes spin {
+@keyframes productSpin {
   to {
     transform: rotate(360deg);
   }
 }
 
-.paginationNav {
+.productListPagination {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 16px;
-  margin-top: 12px;
+  margin-top: 8px;
 }
 
 .paginationBtn {
-  font-family: 'Cinzel', serif;
-  font-size: 0.85rem;
+  font-family: var(--font-display);
+  font-size: 14px;
   font-weight: 700;
-  padding: 8px 16px;
-  background: #6c1613;
-  color: #ebd7b9;
-  border: 1px solid #8c2825;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: all 0.2s ease;
+  letter-spacing: 0.05em;
+  padding: 8px 18px;
+  border: 1px solid color-mix(in oklab, var(--gold) 45%, transparent);
+  background-image: linear-gradient(
+    to bottom,
+    oklch(0.36 0.045 58),
+    oklch(0.24 0.035 50)
+  );
+  color: var(--gold);
+  box-shadow: inset 0 1px 0 oklch(0.6 0.06 70 / 0.28);
+  transition: all 150ms ease;
 }
 
 .paginationBtn:hover:not(:disabled) {
-  background: #8c1e19;
+  background-image: linear-gradient(
+    to bottom,
+    oklch(0.42 0.05 58),
+    oklch(0.28 0.04 50)
+  );
 }
 
 .paginationBtn:disabled {
-  opacity: 0.5;
+  opacity: 0.4;
   cursor: not-allowed;
 }
 
+.paginationBtn:focus-visible {
+  outline: 2px solid var(--gold-dim);
+  outline-offset: 2px;
+}
+
 .paginationInfo {
-  font-family: 'Cinzel', serif;
-  font-size: 0.9rem;
-  font-weight: 700;
-  color: #f1e4c8;
+  font-family: var(--font-display);
+  font-size: 15px;
+  letter-spacing: 0.05em;
+  color: var(--parchment);
 }
