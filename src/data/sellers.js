@@ -1,0 +1,42 @@
+export const SELLERS = [
+  {
+    name: 'Mauricio',
+    craft: 'Mercader del gremio',
+    workshop: 'Taller de Mauricio',
+    town: 'Villa de Aldoria',
+    admittedYear: 1048,
+    image: '/src/assets/img/sellers/mauri.jpg',
+  },
+  {
+    name: 'Óscar',
+    craft: 'Mercader del gremio',
+    workshop: 'Taller de Óscar',
+    town: 'Villa de Aldoria',
+    admittedYear: 1041,
+    image: '/src/assets/img/sellers/oscar.jpg',
+  },
+  {
+    name: 'William',
+    craft: 'Mercader del gremio',
+    workshop: 'Taller de William',
+    town: 'Villa de Aldoria',
+    admittedYear: 1044,
+    image: '/src/assets/img/sellers/william.jpg',
+  },
+  {
+    name: 'Konsta',
+    craft: 'Mercader del gremio',
+    workshop: 'Taller de Konsta',
+    town: 'Villa de Aldoria',
+    admittedYear: 1050,
+    image: '/src/assets/img/sellers/konsta.jpg',
+  },
+  {
+    name: 'Marisa',
+    craft: 'Mercader del gremio',
+    workshop: 'Taller de Marisa',
+    town: 'Villa de Aldoria',
+    admittedYear: 1046,
+    image: '/src/assets/img/sellers/marisa.jpg',
+  },
+];
