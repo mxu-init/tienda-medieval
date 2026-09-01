@@ -1,0 +1,152 @@
+.sellersPageShell {
+    min-height: 100vh;
+    width: 100%;
+}
+
+.sellersPageOverlay {
+    display: flex;
+    justify-content: center;
+    padding: 32px 16px;
+}
+
+.sellersParchmentPanel {
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    border: 4px solid #6c1613;
+    border-radius: 12px;
+    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.6);
+    padding: 36px 28px;
+    overflow: hidden;
+}
+
+.sellersParchmentContent {
+    position: relative;
+    z-index: 2;
+}
+
+.sellersPageHeader {
+    text-align: center;
+    margin-bottom: 28px;
+}
+
+.sellersPageTitle {
+    font-family: 'Cinzel', serif;
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: #4a0e0c;
+    margin: 0 0 8px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.sellersPageSubtitle {
+    font-family: 'Cinzel', serif;
+    font-size: 1rem;
+    color: #634621;
+    margin: 0 auto 16px;
+    max-width: 620px;
+    line-height: 1.5;
+}
+
+.ornamentDivider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+}
+
+.inkRule {
+    flex: 1;
+    height: 2px;
+    background: linear-gradient(90deg, transparent 0%, #8c6a38 50%, transparent 100%);
+    max-width: 260px;
+}
+
+.headerSealIcon {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+}
+
+.sellersGrid {
+    margin-top: 8px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+}
+
+@media (min-width: 640px) {
+    .sellersGrid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .sellersGrid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.sellerCard {
+    border: 2px solid rgba(85, 60, 30, 0.55);
+    border-radius: 8px;
+    background-color: rgba(220, 200, 170, 0.75);
+    box-shadow: inset 0 0 26px rgba(70, 50, 30, 0.22), 0 4px 10px rgba(0, 0, 0, 0.25);
+    padding: 20px;
+    text-align: center;
+}
+
+.sellerPortrait {
+    width: 96px;
+    height: 96px;
+    object-fit: cover;
+    border: 2px solid rgba(85, 60, 30, 0.6);
+    border-radius: 50%;
+}
+
+.sellerName {
+    font-family: 'Cinzel', serif;
+    font-size: 1.3rem;
+    color: #3b1b08;
+    margin: 14px 0 0;
+}
+
+.sellerCraft {
+    font-style: italic;
+    color: #59442a;
+    margin: 6px 0 0;
+}
+
+.sellerDetails {
+    margin-top: 14px;
+    font-size: 0.95rem;
+    text-align: left;
+}
+
+.sellerDetails div {
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+    border-top: 1px solid rgba(85, 60, 30, 0.25);
+    padding: 6px 0;
+}
+
+.sellerDetails dt {
+    color: #6b5238;
+}
+
+.sellerDetails dd {
+    margin: 0;
+    font-weight: 600;
+}
+
+@media (max-width: 640px) {
+    .sellersParchmentPanel {
+        padding: 24px 14px;
+    }
+
+    .sellersPageTitle {
+        font-size: 1.6rem;
+    }
+}

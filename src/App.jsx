@@ -3,6 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import Home from "./pages/home/Home";
 import Users from "./pages/users/Users";
 import Products from "./pages/products/Products";
+import Sellers from "./pages/sellers/Sellers";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 
@@ -17,6 +18,7 @@ function App() {
           <Route path="/products" element={<Products />} />
           <Route path="/store" element={<Products />} />
           <Route path="/tienda" element={<Products />} />
+          <Route path="/sellers" element={<Sellers />} />
         </Routes>
       </main>
       <Footer />
