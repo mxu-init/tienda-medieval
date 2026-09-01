@@ -58,7 +58,7 @@ export const deleteProduct = async (id) => {
 
 export const getCategories = async (signal) => {
   try {
-    const response = await api.get('/categories', { signal });
+    const response = await api.get('/categories?select=*', { signal });
     return response.data;
   } catch (error) {
     if (error.name === 'CanceledError' || error.name === 'AbortError') {

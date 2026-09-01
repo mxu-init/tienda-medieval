@@ -2,7 +2,7 @@ import api from './api';
 
 export const getUsers = async (signal) => {
   try {
-    const response = await api.get('/users?select=*');
+    const response = await api.get('/users?select=*', { signal });
     return response.data;
   } catch (error) {
     if (error.name === 'CanceledError' || error.name === 'AbortError') {
@@ -15,7 +15,7 @@ export const getUsers = async (signal) => {
 
 export const getUserById = async (id, signal) => {
   try {
-    const response = await api.get(`/users?id=eq.${id}`);
+    const response = await api.get(`/users?id=eq.${id}`, { signal });
     return response.data;
   } catch (error) {
     if (error.name === 'CanceledError' || error.name === 'AbortError') {
