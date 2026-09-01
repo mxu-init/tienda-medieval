@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from "react-router-dom";
 import Watherwidget from '../Weatherwidget/Weatherwidget';
 import './Header.css';
+import ribbon from '../../assets/img/ribbon.png';
 
 const navLinks = [
   { label: 'Home', to: '/' },
@@ -14,11 +15,15 @@ const navLinks = [
 const Header = () => {
   return (
     <header className="siteHeader">
-            <Link to="/" className="logoRibbon">
-                <span className="logoStar">✦</span>
-                <span className="logoText">Mercatum Regni</span>
-                <span className="logoStar">✦</span>
-            </Link>
+                <Link to="/" className="logoRibbon">
+                    <img src={ribbon} alt="Logo de Mercatum Regni" className="logoRibbonImage" />
+                    <div className="logoTextOverlay">
+                        <span className="logoStar">✦</span>
+                        <span className="logoText">Mercatum Regni</span>
+                        <span className="logoStar">✦</span>
+                    </div>
+                </Link>
+    
 
             <nav className="mainNav">
                 {navLinks.map((link) => (
