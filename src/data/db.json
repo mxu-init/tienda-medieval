@@ -1,7 +1,7 @@
 {
   "users": [
     {
-      "id": 1,
+      "id": "1",
       "email": "john@mail.com",
       "password": "changeme",
       "name": "Jhon",
@@ -11,7 +11,7 @@
       "updatedAt": "2026-09-01T07:23:22.000Z"
     },
     {
-      "id": 2,
+      "id": "2",
       "email": "maria@mail.com",
       "password": "12345",
       "name": "Maria",
@@ -21,7 +21,7 @@
       "updatedAt": "2026-09-01T07:23:22.000Z"
     },
     {
-      "id": 3,
+      "id": "3",
       "email": "admin@mail.com",
       "password": "admin123",
       "name": "Admin",
@@ -29,11 +29,35 @@
       "avatar": "https://i.imgur.com/yhW6Yw1.jpg",
       "creationAt": "2026-09-01T07:23:22.000Z",
       "updatedAt": "2026-09-01T07:23:22.000Z"
+    },
+    {
+      "name": "Perro Sanxe",
+      "email": "moncloa@gmail.com",
+      "password": "123456789",
+      "avatar": "https://upload.wikimedia.org/wikipedia/commons/4/4a/Pedro_S%C3%A1nchez_in_2026.jpg",
+      "role": "admin",
+      "id": "vxWxhYboklM"
+    },
+    {
+      "name": "Nicolás Maduro Moros",
+      "email": "palacio_miraflores@gmail.com",
+      "password": "123456789",
+      "avatar": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3c/President_Nicol%C3%A1s_Maduro_in_2016.jpg/960px-President_Nicol%C3%A1s_Maduro_in_2016.jpg",
+      "role": "customer",
+      "id": "gaL7XEAiK6A"
+    },
+    {
+      "name": "Isabel Díaz Ayuso",
+      "email": "comuidad_madrid@gmail.com",
+      "password": "6745635354223",
+      "avatar": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/20/Isabel_D%C3%ADaz_Ayuso_en_el_s%C3%A9ptimo_aniversario_de_El_Huffpost_%28cropped%29.jpg/960px-Isabel_D%C3%ADaz_Ayuso_en_el_s%C3%A9ptimo_aniversario_de_El_Huffpost_%28cropped%29.jpg",
+      "role": "customer",
+      "id": "ox94-XzlKf8"
     }
   ],
   "products": [
     {
-      "id": 5,
+      "id": "5",
       "title": "Classic Black Hooded Sweatshirt",
       "slug": "classic-black-hooded-sweatshirt",
       "price": 79,
@@ -55,7 +79,7 @@
       "updatedAt": "2026-09-01T07:23:22.000Z"
     },
     {
-      "id": 9,
+      "id": "9",
       "title": "Classic Navy Blue Baseball Cap",
       "slug": "classic-navy-blue-baseball-cap",
       "price": 61,
@@ -77,7 +101,7 @@
       "updatedAt": "2026-09-01T07:23:22.000Z"
     },
     {
-      "id": 11,
+      "id": "11",
       "title": "Classic Red Baseball Cap",
       "slug": "classic-red-baseball-cap",
       "price": 35,
@@ -99,7 +123,7 @@
       "updatedAt": "2026-09-01T07:23:22.000Z"
     },
     {
-      "id": 12,
+      "id": "12",
       "title": "Classic Black Baseball Cap",
       "slug": "classic-black-baseball-cap",
       "price": 58,
@@ -121,7 +145,7 @@
       "updatedAt": "2026-09-01T07:23:22.000Z"
     },
     {
-      "id": 13,
+      "id": "13",
       "title": "Classic Olive Chino Shorts",
       "slug": "classic-olive-chino-shorts",
       "price": 84,
@@ -142,7 +166,7 @@
       "updatedAt": "2026-09-01T07:23:22.000Z"
     },
     {
-      "id": 14,
+      "id": "14",
       "title": "Classic High-Waisted Athletic Shorts",
       "slug": "classic-high-waisted-athletic-shorts",
       "price": 43,
@@ -164,7 +188,7 @@
       "updatedAt": "2026-09-01T07:23:22.000Z"
     },
     {
-      "id": 15,
+      "id": "15",
       "title": "Classic White Crew Neck T-Shirt",
       "slug": "classic-white-crew-neck-t-shirt",
       "price": 39,
@@ -186,7 +210,7 @@
       "updatedAt": "2026-09-01T07:23:22.000Z"
     },
     {
-      "id": 17,
+      "id": "17",
       "title": "Classic Black T-Shirt",
       "slug": "classic-black-t-shirt",
       "price": 35,
@@ -208,7 +232,7 @@
       "updatedAt": "2026-09-01T07:23:22.000Z"
     },
     {
-      "id": 18,
+      "id": "18",
       "title": "Sleek White & Orange Wireless Gaming Controller",
       "slug": "sleek-white-orange-wireless-gaming-controller",
       "price": 69,
@@ -230,7 +254,7 @@
       "updatedAt": "2026-09-01T07:23:22.000Z"
     },
     {
-      "id": 19,
+      "id": "19",
       "title": "Sleek Wireless Headphone & Inked Earbud Set",
       "slug": "sleek-wireless-headphone-inked-earbud-set",
       "price": 44,
@@ -252,7 +276,7 @@
       "updatedAt": "2026-09-01T07:23:22.000Z"
     },
     {
-      "id": 20,
+      "id": "20",
       "title": "Sleek Comfort-Fit Over-Ear Headphones",
       "slug": "sleek-comfort-fit-over-ear-headphones",
       "price": 28,
@@ -274,7 +298,7 @@
       "updatedAt": "2026-09-01T07:23:22.000Z"
     },
     {
-      "id": 21,
+      "id": "21",
       "title": "Efficient 2-Slice Toaster",
       "slug": "efficient-2-slice-toaster",
       "price": 48,
@@ -296,7 +320,7 @@
       "updatedAt": "2026-09-01T07:23:22.000Z"
     },
     {
-      "id": 22,
+      "id": "22",
       "title": "Sleek Wireless Computer Mouse",
       "slug": "sleek-wireless-computer-mouse",
       "price": 10,
@@ -318,7 +342,7 @@
       "updatedAt": "2026-09-01T07:23:22.000Z"
     },
     {
-      "id": 23,
+      "id": "23",
       "title": "Sleek Modern Laptop with Ambient Lighting",
       "slug": "sleek-modern-laptop-with-ambient-lighting",
       "price": 43,
@@ -340,7 +364,7 @@
       "updatedAt": "2026-09-01T07:23:22.000Z"
     },
     {
-      "id": 24,
+      "id": "24",
       "title": "Sleek Modern Laptop for Professionals",
       "slug": "sleek-modern-laptop-for-professionals",
       "price": 97,
@@ -362,7 +386,7 @@
       "updatedAt": "2026-09-01T07:23:22.000Z"
     },
     {
-      "id": 25,
+      "id": "25",
       "title": "Stylish Red & Silver Over-Ear Headphones",
       "slug": "stylish-red-silver-over-ear-headphones",
       "price": 39,
@@ -384,7 +408,7 @@
       "updatedAt": "2026-09-01T07:23:22.000Z"
     },
     {
-      "id": 26,
+      "id": "26",
       "title": "Sleek Mirror Finish Phone Case",
       "slug": "sleek-mirror-finish-phone-case",
       "price": 27,
@@ -406,7 +430,7 @@
       "updatedAt": "2026-09-01T07:23:22.000Z"
     },
     {
-      "id": 27,
+      "id": "27",
       "title": "Sleek Smartwatch with Vibrant Display",
       "slug": "sleek-smartwatch-with-vibrant-display",
       "price": 16,
@@ -428,7 +452,7 @@
       "updatedAt": "2026-09-01T07:23:22.000Z"
     },
     {
-      "id": 28,
+      "id": "28",
       "title": "Sleek Modern Leather Sofa",
       "slug": "sleek-modern-leather-sofa",
       "price": 53,
@@ -450,7 +474,7 @@
       "updatedAt": "2026-09-01T07:23:22.000Z"
     },
     {
-      "id": 29,
+      "id": "29",
       "title": "Mid-Century Modern Wooden Dining Table",
       "slug": "mid-century-modern-wooden-dining-table",
       "price": 24,
@@ -472,7 +496,7 @@
       "updatedAt": "2026-09-01T07:23:22.000Z"
     },
     {
-      "id": 30,
+      "id": "30",
       "title": "Elegant Golden-Base Stone Top Dining Table",
       "slug": "elegant-golden-base-stone-top-dining-table",
       "price": 66,
@@ -494,7 +518,7 @@
       "updatedAt": "2026-09-01T07:23:22.000Z"
     },
     {
-      "id": 31,
+      "id": "31",
       "title": "Modern Elegance Teal Armchair",
       "slug": "modern-elegance-teal-armchair",
       "price": 25,
@@ -516,7 +540,7 @@
       "updatedAt": "2026-09-01T07:23:22.000Z"
     },
     {
-      "id": 32,
+      "id": "32",
       "title": "Elegant Solid Wood Dining Table",
       "slug": "elegant-solid-wood-dining-table",
       "price": 67,
@@ -538,7 +562,7 @@
       "updatedAt": "2026-09-01T07:23:22.000Z"
     },
     {
-      "id": 33,
+      "id": "33",
       "title": "Modern Minimalist Workstation Setup",
       "slug": "modern-minimalist-workstation-setup",
       "price": 49,
@@ -560,7 +584,7 @@
       "updatedAt": "2026-09-01T07:23:22.000Z"
     },
     {
-      "id": 34,
+      "id": "34",
       "title": "Modern Ergonomic Office Chair",
       "slug": "modern-ergonomic-office-chair",
       "price": 71,
@@ -581,7 +605,7 @@
       "updatedAt": "2026-09-01T07:23:22.000Z"
     },
     {
-      "id": 35,
+      "id": "35",
       "title": "Futuristic Holographic Soccer Cleats",
       "slug": "futuristic-holographic-soccer-cleats",
       "price": 39,
@@ -603,7 +627,7 @@
       "updatedAt": "2026-09-01T07:23:22.000Z"
     },
     {
-      "id": 36,
+      "id": "36",
       "title": "Rainbow Glitter High Heels",
       "slug": "rainbow-glitter-high-heels",
       "price": 39,
@@ -625,7 +649,7 @@
       "updatedAt": "2026-09-01T07:23:22.000Z"
     },
     {
-      "id": 37,
+      "id": "37",
       "title": "Chic Summer Denim Espadrille Sandals",
       "slug": "chic-summer-denim-espadrille-sandals",
       "price": 33,
@@ -647,7 +671,7 @@
       "updatedAt": "2026-09-01T07:23:22.000Z"
     },
     {
-      "id": 38,
+      "id": "38",
       "title": "Vibrant Runners: Bold Orange & Blue Sneakers",
       "slug": "vibrant-runners-bold-orange-blue-sneakers",
       "price": 27,
@@ -669,7 +693,7 @@
       "updatedAt": "2026-09-01T07:23:22.000Z"
     },
     {
-      "id": 39,
+      "id": "39",
       "title": "Vibrant Pink Classic Sneakers",
       "slug": "vibrant-pink-classic-sneakers",
       "price": 84,
@@ -691,7 +715,7 @@
       "updatedAt": "2026-09-01T07:23:22.000Z"
     },
     {
-      "id": 40,
+      "id": "40",
       "title": "Futuristic Silver and Gold High-Top Sneaker",
       "slug": "futuristic-silver-and-gold-high-top-sneaker",
       "price": 68,
@@ -713,7 +737,7 @@
       "updatedAt": "2026-09-01T07:23:22.000Z"
     },
     {
-      "id": 41,
+      "id": "41",
       "title": "Futuristic Chic High-Heel Boots",
       "slug": "futuristic-chic-high-heel-boots",
       "price": 36,
@@ -735,7 +759,7 @@
       "updatedAt": "2026-09-01T07:23:22.000Z"
     },
     {
-      "id": 42,
+      "id": "42",
       "title": "Elegant Patent Leather Peep-Toe Pumps with Gold-Tone Heel",
       "slug": "elegant-patent-leather-peep-toe-pumps",
       "price": 53,
@@ -757,7 +781,7 @@
       "updatedAt": "2026-09-01T07:23:22.000Z"
     },
     {
-      "id": 43,
+      "id": "43",
       "title": "Elegant Purple Leather Loafers",
       "slug": "elegant-purple-leather-loafers",
       "price": 17,
@@ -779,7 +803,7 @@
       "updatedAt": "2026-09-01T07:23:22.000Z"
     },
     {
-      "id": 44,
+      "id": "44",
       "title": "Classic Blue Suede Casual Shoes",
       "slug": "classic-blue-suede-casual-shoes",
       "price": 39,
@@ -801,7 +825,7 @@
       "updatedAt": "2026-09-01T07:23:22.000Z"
     },
     {
-      "id": 45,
+      "id": "45",
       "title": "Sleek Futuristic Electric Bicycle",
       "slug": "sleek-futuristic-electric-bicycle",
       "price": 22,
@@ -823,7 +847,7 @@
       "updatedAt": "2026-09-01T07:23:22.000Z"
     },
     {
-      "id": 46,
+      "id": "46",
       "title": "Sleek All-Terrain Go-Kart",
       "slug": "sleek-all-terrain-go-kart",
       "price": 37,
@@ -845,7 +869,7 @@
       "updatedAt": "2026-09-01T07:23:22.000Z"
     },
     {
-      "id": 47,
+      "id": "47",
       "title": "Radiant Citrus Eau de Parfum",
       "slug": "radiant-citrus-eau-de-parfum",
       "price": 73,
@@ -867,7 +891,7 @@
       "updatedAt": "2026-09-01T07:23:22.000Z"
     },
     {
-      "id": 48,
+      "id": "48",
       "title": "Sleek Olive Green Hardshell Carry-On Luggage",
       "slug": "sleek-olive-green-hardshell-carry-on-luggage",
       "price": 48,
@@ -889,7 +913,7 @@
       "updatedAt": "2026-09-01T07:23:22.000Z"
     },
     {
-      "id": 49,
+      "id": "49",
       "title": "Chic Transparent Fashion Handbag",
       "slug": "chic-transparent-fashion-handbag",
       "price": 61,
@@ -911,7 +935,7 @@
       "updatedAt": "2026-09-01T07:23:22.000Z"
     },
     {
-      "id": 50,
+      "id": "50",
       "title": "Trendy Pink-Tinted Sunglasses",
       "slug": "trendy-pink-tinted-sunglasses",
       "price": 38,
@@ -933,7 +957,7 @@
       "updatedAt": "2026-09-01T07:23:22.000Z"
     },
     {
-      "id": 51,
+      "id": "51",
       "title": "Elegant Glass Tumbler Set",
       "slug": "elegant-glass-tumbler-set",
       "price": 50,
@@ -957,7 +981,7 @@
   ],
   "categories": [
     {
-      "id": 1,
+      "id": "1",
       "name": "Clothes",
       "slug": "clothes",
       "image": "https://i.imgur.com/QkIa5tT.jpeg",
@@ -965,7 +989,7 @@
       "updatedAt": "2026-09-01T07:23:22.000Z"
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "Electronics",
       "slug": "electronics",
       "image": "https://i.imgur.com/ZANVnHE.jpeg",
@@ -973,7 +997,7 @@
       "updatedAt": "2026-09-01T07:23:22.000Z"
     },
     {
-      "id": 3,
+      "id": "3",
       "name": "Furniture",
       "slug": "furniture",
       "image": "https://i.imgur.com/Qphac99.jpeg",
@@ -981,7 +1005,7 @@
       "updatedAt": "2026-09-01T07:23:22.000Z"
     },
     {
-      "id": 4,
+      "id": "4",
       "name": "Shoes",
       "slug": "shoes",
       "image": "https://i.imgur.com/qNOjJje.jpeg",
@@ -989,12 +1013,13 @@
       "updatedAt": "2026-09-01T07:23:22.000Z"
     },
     {
-      "id": 5,
+      "id": "5",
       "name": "Miscellaneous",
       "slug": "miscellaneous",
       "image": "https://i.imgur.com/BG8J0Fj.jpg",
       "creationAt": "2026-09-01T07:23:22.000Z",
       "updatedAt": "2026-09-01T07:23:22.000Z"
     }
-  ]
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
 }
