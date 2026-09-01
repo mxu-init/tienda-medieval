@@ -1,4 +1,4 @@
-import { SALESPEOPLE  } from '../../data/sellers';
+import { SALESPEOPLE } from '../../data/salespeople';
 import stoneImg from '../../assets/img/stone.jpg';
 import parchmentImg from '../../assets/img/parchment.jpg';
 import sealImg from '../../assets/img/seal.png';
