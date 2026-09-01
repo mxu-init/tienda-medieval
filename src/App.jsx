@@ -4,7 +4,7 @@ import Home from "./pages/home/Home";
 import Users from "./pages/users/Users";
 import Products from "./pages/products/Products";
 import Header from "./components/Header/Header";
-import Footer from "./components/Footer/Footer";
+import Footer from "@/components/Footer/Footer";
 
 function App() {
   return (
