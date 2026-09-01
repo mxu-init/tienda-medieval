@@ -1,13 +1,13 @@
-import { SELLERS } from '../../data/sellers';
+import { SALESPEOPLE  } from '../../data/sellers';
 import stoneImg from '../../assets/img/stone.jpg';
 import parchmentImg from '../../assets/img/parchment.jpg';
 import sealImg from '../../assets/img/seal.png';
-import './Sellers.css';
+import './Salespeople.css';
 
-const Sellers = () => {
+const Salespeople = () => {
     return (
         <div
-            className="sellersPageShell"
+            className="salespeoplePageShell"
             style={{
                 backgroundColor: 'oklch(0.19 0.012 60)',
                 backgroundImage: `url(${stoneImg})`,
@@ -39,7 +39,7 @@ const Sellers = () => {
                         </header>
 
                         <div className="sellersGrid">
-                            {SELLERS.map((seller) => (
+                            {SALESPEOPLE.map((seller) => (
                                 <article key={seller.name} className="sellerCard">
                                     <img
                                         src={seller.image}
@@ -72,4 +72,4 @@ const Sellers = () => {
     );
 };
 
-export default Sellers;
+export default Salespeople;

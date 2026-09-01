@@ -1,4 +1,4 @@
-export const SELLERS = [
+export const SALESPEOPLE  = [
   {
     name: 'Mauricio',
     craft: 'Mercader del gremio',
