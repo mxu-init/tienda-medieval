@@ -1,13 +1,5 @@
 import axios from 'axios';
 
-// const api = axios.create({
-//   baseURL: 'https://api.escuelajs.co/api/v1',
-//   timeout: 10000,
-//   headers: {
-//     'Content-Type': 'application/json',
-//   },
-// });
-
 const SUPABASE_URL = import.meta.env.VITE_SUPABASE_URL;
 const SUPABASE_ANON_KEY = import.meta.env.VITE_SUPABASE_ANON_KEY;
 

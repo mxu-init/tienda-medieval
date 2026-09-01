@@ -16,7 +16,7 @@ export const getProducts = async (signal) => {
 export const getProductById = async (id, signal) => {
   try {
     const response = await api.get(`/products?id=eq.${id}&select=*,category:categories(*)`, { signal });
-    return response.data;
+    return response.data[0];
   } catch (error) {
     if (error.name === 'CanceledError' || error.name === 'AbortError') {
       throw error;
@@ -29,19 +29,25 @@ export const getProductById = async (id, signal) => {
 export const createProduct = async (productData) => {
   try {
     const response = await api.post('/products', productData);
-    return response.data;
+    if (!response.data || response.data.length === 0) {
+      throw new Error('No se pudo registrar la mercancía. Verifique los permisos de acceso.');
+    }
+    return response.data[0];
   } catch (error) {
-    const message = error.response?.data?.message || 'Error al registrar la nueva mercancía en la tienda.';
+    const message = error.response?.data?.message || error.message || 'Error al registrar la nueva mercancía en la tienda.';
     throw new Error(Array.isArray(message) ? message.join(', ') : message, { cause: error });
   }
 };
 
 export const updateProduct = async (id, productData) => {
   try {
-    const response = await api.put(`/products?id=eq.${id}`, updatedData);
-    return response.data;
+    const response = await api.patch(`/products?id=eq.${id}`, productData);
+    if (!response.data || response.data.length === 0) {
+      throw new Error('No se pudo actualizar la mercancía. Verifique las políticas de acceso (RLS) en la base de datos.');
+    }
+    return response.data[0];
   } catch (error) {
-    const message = error.response?.data?.message || `Error al actualizar la mercancía con ID ${id}.`;
+    const message = error.response?.data?.message || error.message || `Error al actualizar la mercancía con ID ${id}.`;
     throw new Error(Array.isArray(message) ? message.join(', ') : message, { cause: error });
   }
 };
@@ -49,7 +55,7 @@ export const updateProduct = async (id, productData) => {
 export const deleteProduct = async (id) => {
   try {
     const response = await api.delete(`/products?id=eq.${id}`);
-    return response.data;
+    return response.data[0];
   } catch (error) {
     const message = error.response?.data?.message || `Error al eliminar la mercancía con ID ${id}.`;
     throw new Error(Array.isArray(message) ? message.join(', ') : message, { cause: error });

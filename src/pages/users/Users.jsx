@@ -80,14 +80,18 @@ const Users = () => {
     try {
       if (modalMode === 'create') {
         const newUser = await createUser(formData);
-        setUsers((prev) => [newUser, ...prev]);
-        setSuccessMessage(`El usuario "${newUser.name}" fue creado exitosamente.`);
+        if (newUser) {
+          setUsers((prev) => [newUser, ...prev]);
+          setSuccessMessage(`El usuario "${newUser.name}" fue creado exitosamente.`);
+        }
       } else if (modalMode === 'edit' && selectedUser) {
         const updated = await updateUser(selectedUser.id, formData);
-        setUsers((prev) =>
-          prev.map((u) => (u.id === selectedUser.id ? { ...u, ...updated } : u))
-        );
-        setSuccessMessage(`Los datos de "${updated.name || selectedUser.name}" han sido actualizados.`);
+        if (updated) {
+          setUsers((prev) =>
+            prev.map((u) => (u.id === selectedUser.id ? { ...u, ...updated } : u))
+          );
+          setSuccessMessage(`Los datos de "${updated.name || selectedUser.name}" han sido actualizados.`);
+        }
       }
       setIsModalOpen(false);
     } catch (err) {
