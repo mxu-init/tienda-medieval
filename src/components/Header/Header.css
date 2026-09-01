@@ -6,7 +6,7 @@
     align-items: center;
     justify-content: space-between;
     gap: 24px;
-    padding: 8px 28px;
+    padding: 3px 28px;
     background: #14100c;
     border-bottom: 2px solid #6c1613;
     font-family: 'Cinzel', serif;
@@ -23,13 +23,14 @@
 .logoRibbonImage {
     display: block;
     width: clamp(180px, 16vw, 260px);
-    height: auto;
+    height: 82px;
+     object-fit: fill;
     filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.4));
 }
 
 .logoTextOverlay {
     position: absolute;
-    top: 40%;
+    top: 45%;
     left: 50%;
     transform: translate(-50%, -50%);
     display: flex;
@@ -42,7 +43,7 @@
 .logoText {
     font-size: clamp(0.85rem, 1.3vw, 1.05rem);
     font-weight: 800;
-    color: #4a0e0c;
+    color: #070707;
     text-transform: uppercase;
     letter-spacing: 1px;
     white-space: nowrap;
