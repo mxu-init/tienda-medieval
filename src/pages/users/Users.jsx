@@ -210,10 +210,10 @@ const Users = () => {
           modalMode === 'create'
             ? 'Nuevo Usuario'
             : modalMode === 'edit'
-            ? 'Editar Usuario'
-            : modalMode === 'view'
-            ? 'Detalles del Usuario'
-            : 'Confirmar Eliminación'
+              ? 'Editar Usuario'
+              : modalMode === 'view'
+                ? 'Detalles del Usuario'
+                : 'Confirmar Eliminación'
         }
       >
         {(modalMode === 'create' || modalMode === 'edit') && (

@@ -2,7 +2,7 @@ import api from './api';
 
 export const getProducts = async (signal) => {
   try {
-    const response = await api.get('/products', { signal });
+    const response = await api.get('/products?select=*,category:categories(*)', { signal });
     return response.data;
   } catch (error) {
     if (error.name === 'CanceledError' || error.name === 'AbortError') {
@@ -15,7 +15,7 @@ export const getProducts = async (signal) => {
 
 export const getProductById = async (id, signal) => {
   try {
-    const response = await api.get(`/products/${id}`, { signal });
+    const response = await api.get(`/products?id=eq.${id}&select=*,category:categories(*)`, { signal });
     return response.data;
   } catch (error) {
     if (error.name === 'CanceledError' || error.name === 'AbortError') {
@@ -38,7 +38,7 @@ export const createProduct = async (productData) => {
 
 export const updateProduct = async (id, productData) => {
   try {
-    const response = await api.put(`/products/${id}`, productData);
+    const response = await api.put(`/products?id=eq.${id}`, updatedData);
     return response.data;
   } catch (error) {
     const message = error.response?.data?.message || `Error al actualizar la mercancía con ID ${id}.`;
@@ -48,7 +48,7 @@ export const updateProduct = async (id, productData) => {
 
 export const deleteProduct = async (id) => {
   try {
-    const response = await api.delete(`/products/${id}`);
+    const response = await api.delete(`/products?id=eq.${id}`);
     return response.data;
   } catch (error) {
     const message = error.response?.data?.message || `Error al eliminar la mercancía con ID ${id}.`;

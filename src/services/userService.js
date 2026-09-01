@@ -2,7 +2,7 @@ import api from './api';
 
 export const getUsers = async (signal) => {
   try {
-    const response = await api.get('/users', { signal });
+    const response = await api.get('/users?select=*');
     return response.data;
   } catch (error) {
     if (error.name === 'CanceledError' || error.name === 'AbortError') {
@@ -15,7 +15,7 @@ export const getUsers = async (signal) => {
 
 export const getUserById = async (id, signal) => {
   try {
-    const response = await api.get(`/users/${id}`, { signal });
+    const response = await api.get(`/users?id=eq.${id}`);
     return response.data;
   } catch (error) {
     if (error.name === 'CanceledError' || error.name === 'AbortError') {
@@ -38,7 +38,7 @@ export const createUser = async (userData) => {
 
 export const updateUser = async (id, userData) => {
   try {
-    const response = await api.put(`/users/${id}`, userData);
+    const response = await api.put(`/users?id=eq.${id}`, updatedData);
     return response.data;
   } catch (error) {
     const message = error.response?.data?.message || `Error al actualizar la información del usuario con ID ${id}.`;
@@ -48,7 +48,7 @@ export const updateUser = async (id, userData) => {
 
 export const deleteUser = async (id) => {
   try {
-    const response = await api.delete(`/users/${id}`);
+    const response = await api.delete(`/users?id=eq.${id}`);
     return response.data;
   } catch (error) {
     const message = error.response?.data?.message || `Error al eliminar el usuario con ID ${id}.`;
