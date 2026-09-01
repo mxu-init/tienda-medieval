@@ -21,7 +21,7 @@ const Header = () => {
                     aria-hidden="true"
                     className="brandRibbonImg"
                 />
-                <span className="brandRibbonText">MERCATUM REGNI</span>
+                <span className="brandRibbonText">Mercatum Regni</span>
             </Link>
 
             <nav className="mainNav" aria-label="Navegación principal">

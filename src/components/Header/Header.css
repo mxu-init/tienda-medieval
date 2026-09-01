@@ -18,8 +18,8 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 270px;
-    height: 52px;
+    width: 360px;
+    height: 80px;
     text-decoration: none;
     flex-shrink: 0;
 }
@@ -37,13 +37,13 @@
     position: relative;
     z-index: 1;
     font-family: 'Cinzel', serif;
-    font-size: 1.05rem;
+    font-size: 1.35rem;
     font-weight: 800;
     color: #1a0f07;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    margin-top: -2px;
-    text-shadow: 0 1px 0 rgba(255, 240, 210, 0.4);
+    letter-spacing: 2.5px;
+    margin-top: -6px;
+    text-shadow: 0 1px 0 rgba(255, 240, 210, 0.3);
+    white-space: nowrap;
 }
 
 .mainNav {
