@@ -1,16 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&display=swap');
 
 .siteHeader {
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 24px;
-    padding: 14px 32px;
+    padding: 8px 28px;
     background: #14100c;
     border-bottom: 2px solid #6c1613;
     font-family: 'Cinzel', serif;
 }
-
 
 .logoRibbon {
     position: relative;
@@ -22,14 +22,14 @@
 
 .logoRibbonImage {
     display: block;
-    width: 240px;
+    width: clamp(180px, 16vw, 260px);
     height: auto;
     filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.4));
 }
 
 .logoTextOverlay {
     position: absolute;
-    top: 45%;
+    top: 40%;
     left: 50%;
     transform: translate(-50%, -50%);
     display: flex;
@@ -40,7 +40,7 @@
 }
 
 .logoText {
-    font-size: 1.1rem;
+    font-size: clamp(0.85rem, 1.3vw, 1.05rem);
     font-weight: 800;
     color: #4a0e0c;
     text-transform: uppercase;
@@ -53,37 +53,94 @@
     font-size: 0.8rem;
 }
 
+/* --- Lado derecho: clima + botón de menú --- */
+.headerRight {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
 
+.menuToggle {
+    display: none; /* solo se muestra dentro del media query, en pantallas chicas */
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    background: transparent;
+    border: 1px solid #6c1613;
+    border-radius: 4px;
+    color: #ebd7b9;
+    font-size: 1.3rem;
+    line-height: 1;
+    cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.menuToggle:hover {
+    background: #6c1613;
+    color: #f1e4c8;
+}
+
+/* --- Nav: en línea por defecto (pantallas grandes) --- */
 .mainNav {
     display: flex;
+    align-items: center;
     gap: 28px;
 }
 
 .navLink {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
     color: #ebd7b9;
     text-decoration: none;
     font-size: 0.95rem;
     letter-spacing: 0.5px;
-    transition: color 0.2s ease;
+    padding: 6px 14px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
 }
 
 .navLink:hover {
     color: #d4af6a;
 }
 
+/* Link de la página en la que estamos: recuadro dorado + estrellitas */
+.navLinkActive {
+    color: #d4af6a;
+    border-color: #d4af6a;
+    background: rgba(212, 175, 106, 0.08);
+}
 
+.navLinkStar {
+    font-size: 0.7rem;
+    color: #d4af6a;
+}
+
+/* --- Responsive: pantallas chicas usan menú hamburguesa --- */
 @media (max-width: 820px) {
-    .siteHeader {
-        flex-wrap: wrap;
-        justify-content: center;
-        text-align: center;
+    .menuToggle {
+        display: flex;
     }
 
     .mainNav {
-        order: 3;
-        width: 100%;
-        justify-content: center;
-        flex-wrap: wrap;
-        gap: 16px;
+        display: none; /* oculto hasta que se abra */
+        position: absolute;
+        top: 100%;
+        right: 32px;
+        margin-top: 8px;
+        flex-direction: column;
+        gap: 4px;
+        background: #14100c;
+        border: 1px solid #6c1613;
+        border-radius: 6px;
+        padding: 12px 20px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+        z-index: 20;
+    }
+
+    .mainNav.mainNavOpen {
+        display: flex; /* se muestra cuando menuOpen es true */
     }
 }
