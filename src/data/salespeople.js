@@ -1,4 +1,8 @@
 import marisaImg from '../assets/img/marisa.png';
+import williamImg from '../assets/img/william.png';
+import mauricioImg from '../assets/img/mauricio.png';
+import knstaImg from '../assets/img/konsta.png';
+import oscarImg from '../assets/img/oscar.png';
 
 export const SALESPEOPLE = [
   {
@@ -7,7 +11,7 @@ export const SALESPEOPLE = [
     workshop: 'Taller de Mauricio',
     town: 'Villa de Aldoria',
     admittedYear: 1048,
-    image: '',
+    image: mauricioImg,
   },
   {
     name: 'Óscar',
@@ -15,7 +19,7 @@ export const SALESPEOPLE = [
     workshop: 'Taller de Óscar',
     town: 'Villa de Aldoria',
     admittedYear: 1041,
-    image: '',
+    image: oscarImg,
   },
   {
     name: 'William',
@@ -23,7 +27,7 @@ export const SALESPEOPLE = [
     workshop: 'Taller de William',
     town: 'Villa de Aldoria',
     admittedYear: 1044,
-    image: '',
+    image: williamImg,
   },
   {
     name: 'Konsta',
@@ -31,7 +35,7 @@ export const SALESPEOPLE = [
     workshop: 'Taller de Konsta',
     town: 'Villa de Aldoria',
     admittedYear: 1050,
-    image: '',
+    image: knstaImg,
   },
   {
     name: 'Marisa',
