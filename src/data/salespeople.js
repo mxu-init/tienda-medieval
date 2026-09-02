@@ -1,4 +1,6 @@
-export const SALESPEOPLE  = [
+import marisaImg from '../assets/img/marisa.png';
+
+export const SALESPEOPLE = [
   {
     name: 'Mauricio',
     craft: 'Mercader del gremio',
@@ -37,6 +39,6 @@ export const SALESPEOPLE  = [
     workshop: 'Taller de Marisa',
     town: 'Villa de Aldoria',
     admittedYear: 1046,
-    image: '/src/assets/img/sellers/marisa.jpg',
+    image: marisaImg,
   },
 ];
