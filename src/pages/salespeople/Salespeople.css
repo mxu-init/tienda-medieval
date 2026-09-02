@@ -1,15 +1,15 @@
-.sellersPageShell {
+.salespeoplePageShell {
     min-height: 100vh;
     width: 100%;
 }
 
-.sellersPageOverlay {
+.salespeoplePageOverlay {
     display: flex;
     justify-content: center;
     padding: 32px 16px;
 }
 
-.sellersParchmentPanel {
+.salespeopleParchmentPanel {
     position: relative;
     width: 100%;
     max-width: 1200px;
@@ -20,17 +20,17 @@
     overflow: hidden;
 }
 
-.sellersParchmentContent {
+.salespeopleParchmentContent {
     position: relative;
     z-index: 2;
 }
 
-.sellersPageHeader {
+.salespeoplePageHeader {
     text-align: center;
     margin-bottom: 28px;
 }
 
-.sellersPageTitle {
+.salespeoplePageTitle {
     font-family: 'Cinzel', serif;
     font-size: 2.2rem;
     font-weight: 800;
@@ -40,7 +40,7 @@
     letter-spacing: 1px;
 }
 
-.sellersPageSubtitle {
+.salespeoplePageSubtitle {
     font-family: 'Cinzel', serif;
     font-size: 1rem;
     color: #634621;
@@ -69,7 +69,7 @@
     object-fit: contain;
 }
 
-.sellersGrid {
+.salespeopleGrid {
     margin-top: 8px;
     display: grid;
     grid-template-columns: 1fr;
@@ -77,54 +77,67 @@
 }
 
 @media (min-width: 640px) {
-    .sellersGrid {
+    .salespeopleGrid {
         grid-template-columns: repeat(2, 1fr);
     }
 }
 
 @media (min-width: 1024px) {
-    .sellersGrid {
+    .salespeopleGrid {
         grid-template-columns: repeat(3, 1fr);
     }
 }
 
-.sellerCard {
+.salespersonCard {
     border: 2px solid rgba(85, 60, 30, 0.55);
     border-radius: 8px;
     background-color: rgba(220, 200, 170, 0.75);
     box-shadow: inset 0 0 26px rgba(70, 50, 30, 0.22), 0 4px 10px rgba(0, 0, 0, 0.25);
     padding: 20px;
-    text-align: center;
+    text-align: left;
 }
 
-.sellerPortrait {
+.salespersonCardTop {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+}
+
+.salespersonPortrait {
     width: 96px;
     height: 96px;
     object-fit: cover;
     border: 2px solid rgba(85, 60, 30, 0.6);
-    border-radius: 50%;
+    border-radius: 6px;
 }
 
-.sellerName {
+.salespersonName {
     font-family: 'Cinzel', serif;
     font-size: 1.3rem;
     color: #3b1b08;
-    margin: 14px 0 0;
+    margin: 0;
 }
 
-.sellerCraft {
+.salespersonCraft {
     font-style: italic;
     color: #59442a;
     margin: 6px 0 0;
 }
 
-.sellerDetails {
-    margin-top: 14px;
-    font-size: 0.95rem;
-    text-align: left;
+.salespersonWorkshop {
+    font-size: 0.85rem;
+    color: #6b5238;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin: 6px 0 0;
 }
 
-.sellerDetails div {
+.salespersonDetails {
+    margin-top: 14px;
+    font-size: 0.95rem;
+}
+
+.salespersonDetails div {
     display: flex;
     justify-content: space-between;
     gap: 8px;
@@ -132,21 +145,50 @@
     padding: 6px 0;
 }
 
-.sellerDetails dt {
+.salespersonDetails dt {
     color: #6b5238;
 }
 
-.sellerDetails dd {
+.salespersonDetails dd {
     margin: 0;
     font-weight: 600;
 }
 
+.viewWorkshopBtn {
+    margin-top: 16px;
+    width: 100%;
+    padding: 10px;
+    font-family: 'Cinzel', serif;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    background: transparent;
+    border: 2px solid #6c1613;
+    color: #4a0e0c;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.viewWorkshopBtn:hover {
+    background: #6c1613;
+    color: #ebd7b9;
+}
+
 @media (max-width: 640px) {
-    .sellersParchmentPanel {
+    .salespeopleParchmentPanel {
         padding: 24px 14px;
     }
 
-    .sellersPageTitle {
+    .salespeoplePageTitle {
         font-size: 1.6rem;
+    }
+}
+@media (max-width: 420px) {
+    .salespersonCardTop {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .salespersonPortrait {
+        margin: 0 auto;
     }
 }

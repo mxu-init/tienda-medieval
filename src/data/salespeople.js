@@ -7,7 +7,7 @@ export const SALESPEOPLE = [
     workshop: 'Taller de Mauricio',
     town: 'Villa de Aldoria',
     admittedYear: 1048,
-    image: '/src/assets/img/sellers/mauri.jpg',
+    image: '',
   },
   {
     name: 'Óscar',
@@ -15,7 +15,7 @@ export const SALESPEOPLE = [
     workshop: 'Taller de Óscar',
     town: 'Villa de Aldoria',
     admittedYear: 1041,
-    image: '/src/assets/img/sellers/oscar.jpg',
+    image: '',
   },
   {
     name: 'William',
@@ -23,7 +23,7 @@ export const SALESPEOPLE = [
     workshop: 'Taller de William',
     town: 'Villa de Aldoria',
     admittedYear: 1044,
-    image: '/src/assets/img/sellers/william.jpg',
+    image: '',
   },
   {
     name: 'Konsta',
@@ -31,7 +31,7 @@ export const SALESPEOPLE = [
     workshop: 'Taller de Konsta',
     town: 'Villa de Aldoria',
     admittedYear: 1050,
-    image: '/src/assets/img/sellers/konsta.jpg',
+    image: '',
   },
   {
     name: 'Marisa',

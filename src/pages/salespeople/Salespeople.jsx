@@ -15,19 +15,19 @@ const Salespeople = () => {
                 backgroundRepeat: 'repeat',
             }}
         >
-            <div className="sellersPageOverlay">
+            <div className="salespeoplePageOverlay">
                 <main
-                    className="sellersParchmentPanel"
+                    className="salespeopleParchmentPanel"
                     style={{
                         backgroundImage: `url(${parchmentImg})`,
                         backgroundSize: '1600px',
                         backgroundRepeat: 'repeat',
                     }}
                 >
-                    <div className="sellersParchmentContent">
-                        <header className="sellersPageHeader">
-                            <h1 className="sellersPageTitle">Vendedores del Gremio</h1>
-                            <p className="sellersPageSubtitle">
+                    <div className="salespeopleParchmentContent">
+                        <header className="salespeoplePageHeader">
+                            <h1 className="salespeoplePageTitle">Vendedores del Gremio</h1>
+                            <p className="salespeoplePageSubtitle">
                                 Maestros y talleres admitidos por el gremio, con su retrato y su nombre
                                 registrado en los libros del reino.
                             </p>
@@ -38,30 +38,32 @@ const Salespeople = () => {
                             </div>
                         </header>
 
-                        <div className="sellersGrid">
+                        <div className="salespeopleGrid">
                             {SALESPEOPLE.map((seller) => (
-                                <article key={seller.name} className="sellerCard">
-                                    <img
-                                        src={seller.image}
-                                        alt={`Retrato de ${seller.name}`}
-                                        className="sellerPortrait"
-                                    />
-                                    <h2 className="sellerName">{seller.name}</h2>
-                                    <p className="sellerCraft">{seller.craft}</p>
-                                    <dl className="sellerDetails">
+                                <article key={seller.name} className="salespersonCard">
+                                    <div className="salespersonCardTop">
+                                        <img
+                                            src={seller.image}
+                                            alt={`Retrato de ${seller.name}`}
+                                            className="salespersonPortrait"
+                                        />
                                         <div>
-                                            <dt>Taller</dt>
-                                            <dd>{seller.workshop}</dd>
+                                            <h2 className="salespersonName">{seller.name}</h2>
+                                            <p className="salespersonCraft">{seller.craft}</p>
+                                            <p className="salespersonWorkshop">🛡 {seller.workshop}</p>
                                         </div>
+                                    </div>
+                                    <dl className="salespersonDetails">
                                         <div>
                                             <dt>Villa</dt>
                                             <dd>{seller.town}</dd>
                                         </div>
                                         <div>
                                             <dt>Admitido</dt>
-                                            <dd>Año {seller.admittedYear}</dd>
+                                            <dd>Anno {seller.admittedYear}</dd>
                                         </div>
                                     </dl>
+                                    <button type="button" className="viewWorkshopBtn">Ver taller</button>
                                 </article>
                             ))}
                         </div>
