@@ -1,44 +1,51 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import ribbonImg from '../../assets/img/ribbon.png';
 import './Banner.css';
 
 const apiUrl = 'https://api.escuelajs.co/api/v1/products';
 const maxBannerItems = 5;
 const carouselIntervalMs = 3000;
 
-const bannerComp = () => {
+const sortProductsByPriceDescending = (products) => {
+    return [...products].sort((firstProduct, secondProduct) => secondProduct.price - firstProduct.price);
+};
+
+const getTopExpensiveProducts = (products, limit) => {
+    const sortedProducts = sortProductsByPriceDescending(products);
+    return sortedProducts.slice(0, limit);
+};
+
+const BannerComp = () => {
     const [premiumProducts, setPremiumProducts] = useState([]);
     const [currentIndex, setCurrentIndex] = useState(0);
     const [isLoading, setIsLoading] = useState(true);
     const [hasError, setHasError] = useState(false);
     const [isPaused, setIsPaused] = useState(false);
 
-    const sortProductsByPriceDescending = (products) => {
-        return [...products].sort((firstProduct, secondProduct) => secondProduct.price - firstProduct.price);
-    };
-
-    const getTopExpensiveProducts = (products, limit) => {
-        const sortedProducts = sortProductsByPriceDescending(products);
-        return sortedProducts.slice(0, limit);
-    };
-
     useEffect(() => {
+        const abortController = new AbortController();
+
         const fetchBannerProducts = async () => {
             try {
-                const response = await axios.get(apiUrl);
+                const response = await axios.get(apiUrl, { signal: abortController.signal });
                 const expensiveItems = getTopExpensiveProducts(response.data, maxBannerItems);
-
                 setPremiumProducts(expensiveItems);
             } catch (error) {
-                console.error('Failed to load high value inventory:', error);
-                setHasError(true);
+                if (!axios.isCancel(error)) {
+                    setHasError(true);
+                }
             } finally {
                 setIsLoading(false);
             }
         };
 
         fetchBannerProducts();
+
+        return () => {
+            abortController.abort();
+        };
     }, []);
 
     const handlePrev = () => {
@@ -58,32 +65,39 @@ const bannerComp = () => {
             return;
         }
 
-        const startCarouselTimer = () => {
-            return setInterval(() => {
-                setCurrentIndex((previousIndex) =>
-                    previousIndex === premiumProducts.length - 1 ? 0 : previousIndex + 1
-                );
-            }, carouselIntervalMs);
-        };
-
-        const timerId = startCarouselTimer();
+        const timerId = setInterval(() => {
+            setCurrentIndex((previousIndex) =>
+                previousIndex === premiumProducts.length - 1 ? 0 : previousIndex + 1
+            );
+        }, carouselIntervalMs);
 
         return () => clearInterval(timerId);
     }, [isLoading, hasError, premiumProducts, isPaused]);
 
-    if (isLoading) return <div className="loadingState">Cargando mercancías de valor...</div>;
-    if (hasError) return <div className="errorState">No se pudieron cargar los productos del reino.</div>;
+    if (isLoading) return <div className="bannerLoadingState">Cargando mercancías de valor...</div>;
+    if (hasError) return <div className="bannerErrorState">No se pudieron cargar los productos del reino.</div>;
     if (premiumProducts.length === 0) return null;
 
     const activeProduct = premiumProducts[currentIndex];
 
     return (
         <section
-            className="dynamicBannerContainer"
+            className="siteBannerWoodContainer"
             onMouseEnter={() => setIsPaused(true)}
             onMouseLeave={() => setIsPaused(false)}
+            aria-label="Mercancías destacadas del reino"
         >
-            <div className="bannerOuterFrame">
+            <div className="bannerGoldFrame">
+                <header className="bannerRibbonHeader">
+                    <img
+                        src={ribbonImg}
+                        alt=""
+                        aria-hidden="true"
+                        className="bannerRibbonImage"
+                    />
+                    <h3 className="bannerRibbonTitle">Mercancías de Élite</h3>
+                </header>
+
                 <article key={activeProduct.id} className="bannerCardActive">
                     <div className="bannerImageWrapper">
                         <img
@@ -94,7 +108,7 @@ const bannerComp = () => {
                     </div>
                     <div className="bannerInfo">
                         <span className="premiumBadge">
-                            + {activeProduct.category?.name || 'CLOTHES'}
+                            ✦ {activeProduct.category?.name || 'CLOTHES'} ✦
                         </span>
                         <h2 className="productTitle">{activeProduct.title}</h2>
                         <p className="productPrice">
@@ -124,7 +138,7 @@ const bannerComp = () => {
                             </div>
                         </div>
 
-                        <div className="bannerIndicators">
+                        <div className="bannerIndicators" role="tablist" aria-label="Diapositivas de mercancías">
                             {premiumProducts.map((_, index) => (
                                 <button
                                     key={index}
@@ -141,4 +155,4 @@ const bannerComp = () => {
     );
 };
 
-export default bannerComp;
+export default BannerComp;

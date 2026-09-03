@@ -1,56 +1,11 @@
-<<<<<<< HEAD
-.userForm {
+.productFormParchment {
   display: flex;
   flex-direction: column;
-  gap: 14px;
-}
-
-.userFormLabel {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  font-family: 'Cinzel', serif;
-  font-size: 12px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-}
-
-.userFormInput {
-  padding: 10px 12px;
-  border: 1px solid oklch(0.34 0.04 55 / 0.55);
-  background: oklch(0.92 0.03 85 / 0.8);
-  color: #2e2117;
-  font-family: 'EB Garamond', Georgia, serif;
-  font-size: 18px;
-}
-
-.userFormInput:disabled {
-  opacity: 0.7;
-}
-
-.userFormError {
-  font-family: 'EB Garamond', Georgia, serif;
-  font-size: 15px;
-  letter-spacing: 0;
-  text-transform: none;
-  color: #6c1613;
-}
-
-.userFormActions {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-end;
-  gap: 12px;
-  margin-top: 8px;
-=======
-.userFormParchment {
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
+  gap: 16px;
   width: 100%;
 }
 
-.userFormTitle {
+.productFormTitle {
   font-family: 'Cinzel', serif;
   font-size: 1.35rem;
   font-weight: 700;
@@ -75,7 +30,8 @@
 }
 
 .formInput,
-.formSelect {
+.formSelect,
+.formTextarea {
   padding: 10px 14px;
   border: 2px solid #8c6a38;
   border-radius: 6px;
@@ -86,8 +42,14 @@
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
+.formTextarea {
+  resize: vertical;
+  min-height: 90px;
+}
+
 .formInput:focus,
-.formSelect:focus {
+.formSelect:focus,
+.formTextarea:focus {
   outline: none;
   border-color: #6c1613;
   box-shadow: 0 0 0 3px rgba(108, 22, 19, 0.25);
@@ -153,5 +115,4 @@
 .formBtn:disabled {
   opacity: 0.6;
   cursor: not-allowed;
->>>>>>> 89ccbc492cf207387b3d28dc0a2af52f8e56c5fe
 }

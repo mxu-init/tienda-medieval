@@ -1,29 +1,15 @@
-<<<<<<< HEAD
-.usersIntroBox {
-  max-width: 720px;
-  margin: 32px auto 0;
-  text-align: center;
-}
-
-.usersActionBar {
-  margin-top: 32px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 12px;
-=======
-.usersPageShell {
+.productsPageShell {
   min-height: 100vh;
   width: 100%;
 }
 
-.usersPageOverlay {
+.productsPageOverlay {
   display: flex;
   justify-content: center;
   padding: 32px 16px;
 }
 
-.usersParchmentPanel {
+.productsParchmentPanel {
   position: relative;
   width: 100%;
   max-width: 1200px;
@@ -34,17 +20,17 @@
   overflow: hidden;
 }
 
-.usersParchmentContent {
+.productsParchmentContent {
   position: relative;
   z-index: 2;
 }
 
-.usersPageHeader {
+.productsPageHeader {
   text-align: center;
   margin-bottom: 28px;
 }
 
-.usersPageTitle {
+.productsPageTitle {
   font-family: 'Cinzel', serif;
   font-size: 2.2rem;
   font-weight: 800;
@@ -54,7 +40,7 @@
   letter-spacing: 1px;
 }
 
-.usersPageSubtitle {
+.productsPageSubtitle {
   font-family: 'Cinzel', serif;
   font-size: 1rem;
   color: #634621;
@@ -118,7 +104,7 @@
   padding: 2px 6px;
 }
 
-.usersActionBar {
+.productsActionBar {
   display: flex;
   justify-content: flex-end;
   margin-bottom: 24px;
@@ -147,7 +133,7 @@
   outline: 2px solid #ebd7b9;
 }
 
-.userViewDetail {
+.productViewDetail {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -155,19 +141,19 @@
   gap: 16px;
 }
 
-.detailAvatarWrapper {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  padding: 4px;
-  background: linear-gradient(180deg, #d4af6a 0%, #8c6a38 100%);
+.detailProductImgWrapper {
+  width: 100%;
+  max-width: 320px;
+  height: 200px;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 2px solid #8c6a38;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
-.detailAvatarImg {
+.detailProductImg {
   width: 100%;
   height: 100%;
-  border-radius: 50%;
   object-fit: cover;
 }
 
@@ -175,9 +161,11 @@
   display: flex;
   flex-direction: column;
   gap: 8px;
+  text-align: left;
+  width: 100%;
 }
 
-.detailName {
+.detailTitle {
   font-family: 'Cinzel', serif;
   font-size: 1.4rem;
   font-weight: 800;
@@ -185,15 +173,17 @@
   margin: 0;
 }
 
-.detailEmail,
-.detailRole,
-.detailId {
+.detailPrice,
+.detailCategory,
+.detailId,
+.detailDescription {
   font-size: 0.95rem;
   color: #59442a;
   margin: 0;
+  line-height: 1.5;
 }
 
-.roleTag {
+.categoryTag {
   font-family: 'Cinzel', serif;
   font-weight: 700;
   color: #6c1613;
@@ -201,6 +191,9 @@
 
 .detailActions {
   margin-top: 16px;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
 }
 
 .deleteConfirmBox {
@@ -230,14 +223,13 @@
 }
 
 @media (max-width: 640px) {
-  .usersParchmentPanel {
+  .productsParchmentPanel {
     padding: 24px 14px;
   }
-  .usersPageTitle {
+  .productsPageTitle {
     font-size: 1.6rem;
   }
   .createBtn {
     width: 100%;
   }
->>>>>>> 89ccbc492cf207387b3d28dc0a2af52f8e56c5fe
 }

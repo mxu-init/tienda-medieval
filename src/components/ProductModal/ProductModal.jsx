@@ -1,34 +1,19 @@
 import { useEffect } from 'react';
-import './UserModal.css';
+import './ProductModal.css';
 
-const UserModal = ({ isOpen, onClose, title, children }) => {
+const ProductModal = ({ isOpen, onClose, title, children }) => {
   useEffect(() => {
-<<<<<<< HEAD
-    const handleKeyDown = (event) => {
-      if (event.key === 'Escape') {
-        onClose();
-      }
-    };
-
-=======
     const handleKeyDown = (e) => {
       if (e.key === 'Escape') {
         onClose();
       }
     };
->>>>>>> 89ccbc492cf207387b3d28dc0a2af52f8e56c5fe
     if (isOpen) {
       document.body.style.overflow = 'hidden';
       window.addEventListener('keydown', handleKeyDown);
     }
-<<<<<<< HEAD
-
-    return () => {
-      document.body.style.overflow = '';
-=======
     return () => {
       document.body.style.overflow = 'auto';
->>>>>>> 89ccbc492cf207387b3d28dc0a2af52f8e56c5fe
       window.removeEventListener('keydown', handleKeyDown);
     };
   }, [isOpen, onClose]);
@@ -38,18 +23,6 @@ const UserModal = ({ isOpen, onClose, title, children }) => {
   }
 
   return (
-<<<<<<< HEAD
-    <div className="userModalBackdrop" onClick={onClose} role="presentation">
-      <div
-        className="userModalContainer"
-        onClick={(event) => event.stopPropagation()}
-        role="dialog"
-        aria-modal="true"
-        aria-labelledby="userModalTitle"
-      >
-        <header className="userModalHeader">
-          <h2 id="userModalTitle" className="userModalTitle">
-=======
     <div className="modalBackdrop" onClick={onClose} role="presentation">
       <div
         className="modalContainer"
@@ -60,32 +33,21 @@ const UserModal = ({ isOpen, onClose, title, children }) => {
       >
         <header className="modalHeader">
           <h2 id="modalTitle" className="modalTitle">
->>>>>>> 89ccbc492cf207387b3d28dc0a2af52f8e56c5fe
             {title}
           </h2>
           <button
             type="button"
-<<<<<<< HEAD
-            className="userModalCloseBtn"
-            onClick={onClose}
-            aria-label="Cerrar"
-=======
             className="modalCloseBtn"
             onClick={onClose}
             aria-label="Cerrar modal"
->>>>>>> 89ccbc492cf207387b3d28dc0a2af52f8e56c5fe
           >
             ✕
           </button>
         </header>
-<<<<<<< HEAD
-        <div className="userModalBody">{children}</div>
-=======
         <div className="modalBody">{children}</div>
->>>>>>> 89ccbc492cf207387b3d28dc0a2af52f8e56c5fe
       </div>
     </div>
   );
 };
 
-export default UserModal;
+export default ProductModal;
