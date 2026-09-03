@@ -1,9 +1,18 @@
+import parchmentImg from '../../assets/img/parchment.jpg';
+import p1Img from '../../assets/img/p1.jpg';
+import p2Img from '../../assets/img/p2.jpg';
+import p3Img from '../../assets/img/p3.jpg';
+import p4Img from '../../assets/img/p4.jpg';
 import './ProductCard.css';
 
-const ProductCard = ({ product, onView, onEdit, onDelete }) => {
+const fallbackImages = [p1Img, p2Img, p3Img, p4Img];
+
+const ProductCard = ({ product, index = 0, onView }) => {
   if (!product) {
     return null;
   }
+
+  const fallback = fallbackImages[index % fallbackImages.length];
 
   const getImageUrl = (images) => {
     if (Array.isArray(images) && images.length > 0) {
@@ -15,66 +24,50 @@ const ProductCard = ({ product, onView, onEdit, onDelete }) => {
         }
       }
     }
-    return 'https://picsum.photos/300/200';
+    return fallback;
   };
 
   const handleImageError = (e) => {
     e.target.onerror = null;
-    e.target.src = 'https://picsum.photos/300/200';
+    e.target.src = fallback;
   };
 
   const imageUrl = getImageUrl(product.images);
-  const categoryName = product.category?.name || 'Mercancía General';
 
   return (
-    <article className="productCardParchment">
-      <div className="productCardBadge">#{product.id}</div>
-      <div className="productImageWrapper">
-        <img
-          src={imageUrl}
-          alt={`Imagen de ${product.title}`}
-          className="productCardImg"
-          onError={handleImageError}
-        />
-        <span className="productCategoryTag">{categoryName}</span>
-      </div>
-      <div className="productCardContent">
-        <h3 className="productTitle">{product.title}</h3>
-        <p className="productPrice">{product.price} Monedas de Oro</p>
-        <p className="productDescription">
-          {product.description?.length > 80
-            ? `${product.description.substring(0, 80)}...`
-            : product.description}
-        </p>
-      </div>
-      <div className="productCardActions">
-        <button
-          type="button"
-          className="productCardBtn btnView"
-          onClick={() => onView(product)}
-          title={`Ver detalles de ${product.title}`}
-          aria-label={`Ver detalles de ${product.title}`}
-        >
-          Ver
-        </button>
-        <button
-          type="button"
-          className="productCardBtn btnEdit"
-          onClick={() => onEdit(product)}
-          title={`Editar mercancía ${product.title}`}
-          aria-label={`Editar mercancía ${product.title}`}
-        >
-          Editar
-        </button>
-        <button
-          type="button"
-          className="productCardBtn btnDelete"
-          onClick={() => onDelete(product)}
-          title={`Eliminar mercancía ${product.title}`}
-          aria-label={`Eliminar mercancía ${product.title}`}
-        >
-          Eliminar
-        </button>
+    <article
+      className="shopCard"
+      style={{ '--shopParchment': `url(${parchmentImg})` }}
+      onClick={() => onView && onView(product)}
+      role="button"
+      tabIndex={0}
+      onKeyDown={(e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          onView && onView(product);
+        }
+      }}
+      aria-label={`Ver detalles de ${product.title}`}
+    >
+      <div className="shopCardInner">
+        <div className="shopCardMedia">
+          <img
+            src={imageUrl}
+            alt={product.title}
+            className="shopCardImg"
+            loading="lazy"
+            width={640}
+            height={480}
+            onError={handleImageError}
+          />
+        </div>
+        <div className="shopCardBody">
+          <h3 className="shopCardTitle">{product.title}</h3>
+          <p className="shopCardPrice">
+            {Math.round(product.price)}{' '}
+            <span className="shopCardPriceCurrency">monedas de oro</span>
+          </p>
+        </div>
       </div>
     </article>
   );

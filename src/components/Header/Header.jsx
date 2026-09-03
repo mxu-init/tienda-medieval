@@ -43,7 +43,7 @@ const Header = () => {
                 ))}
             </nav>
 
-            <Watherwidget place="Tu villa" />
+            <Watherwidget place="" />
         </header>
     );
 };

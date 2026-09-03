@@ -84,7 +84,7 @@ const WeatherIcon = ({ type }) => {
     return icons[type] || icons.cloud;
 };
 
-const WeatherWidget = ({ place = 'Tu villa' }) => {
+const WeatherWidget = ({ place = '' }) => {
     const [now, setNow] = useState(new Date());
     const [weather, setWeather] = useState(null);
     const [hasError, setHasError] = useState(false);

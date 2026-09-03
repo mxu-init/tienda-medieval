@@ -10,8 +10,8 @@ import ProductList from '../../components/ProductList/ProductList';
 import ProductForm from '../../components/ProductForm/ProductForm';
 import ProductModal from '../../components/ProductModal/ProductModal';
 import stoneImg from '../../assets/img/stone.jpg';
-import parchmentImg from '../../assets/img/parchment.jpg';
-import sealImg from '../../assets/img/seal.png';
+import bannerImg from '../../assets/img/banner.png';
+import lanternImg from '../../assets/img/lantern.png';
 import './Products.css';
 
 const Products = () => {
@@ -25,6 +25,9 @@ const Products = () => {
   const [modalMode, setModalMode] = useState('create');
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const [selectedCategory, setSelectedCategory] = useState('Todo');
+  const [searchQuery, setSearchQuery] = useState('');
 
   useEffect(() => {
     const controller = new AbortController();
@@ -54,6 +57,17 @@ const Products = () => {
     };
   }, []);
 
+  const categoryNames = [
+    'Todo',
+    ...Array.from(new Set(products.map((p) => p.category?.name).filter(Boolean))),
+  ];
+
+  const filteredProducts = products.filter((p) => {
+    const matchesCategory = selectedCategory === 'Todo' || p.category?.name === selectedCategory;
+    const matchesSearch = p.title?.toLowerCase().includes(searchQuery.trim().toLowerCase());
+    return matchesCategory && matchesSearch;
+  });
+
   const handleOpenCreate = () => {
     setSelectedProduct(null);
     setModalMode('create');
@@ -82,6 +96,21 @@ const Products = () => {
     if (isSubmitting) return;
     setIsModalOpen(false);
     setSelectedProduct(null);
+  };
+
+  const handleReload = () => {
+    setIsLoading(true);
+    setErrorMessage('');
+    Promise.all([getProducts(), getCategories()])
+      .then(([productsData, categoriesData]) => {
+        setProducts(productsData);
+        setCategories(categoriesData);
+        setIsLoading(false);
+      })
+      .catch((err) => {
+        setErrorMessage(err.message || 'Error al recargar el catálogo.');
+        setIsLoading(false);
+      });
   };
 
   const handleFormSubmit = async (formData) => {
@@ -155,45 +184,37 @@ const Products = () => {
   };
 
   return (
-    <div
-      className="productsPageShell"
+    <section
+      className="shopHall"
       style={{
-        backgroundColor: 'oklch(0.19 0.012 60)',
         backgroundImage: `url(${stoneImg})`,
         backgroundSize: '620px',
         backgroundRepeat: 'repeat',
       }}
     >
-      <div className="productsPageOverlay">
-        <main
-          className="productsParchmentPanel"
-          style={{
-            backgroundImage: `url(${parchmentImg})`,
-            backgroundSize: '1600px',
-            backgroundRepeat: 'repeat',
-          }}
-        >
-          <div className="productsParchmentContent">
-            <header className="productsPageHeader">
-              <span aria-hidden="true" className="vellumWash" />
-              <h1 className="productsPageTitle">Mercancías del Reino</h1>
-              <p className="productsPageSubtitle">
-                Inventario de armas, armaduras, pociones y objetos valiosos expuestos por los gremios.
-              </p>
-              <div className="ornamentDivider">
-                <span className="inkRule" />
-                <img src={sealImg} alt="Sello real del reino" className="headerSealIcon" />
-                <span className="inkRule" />
-              </div>
-            </header>
+      <div className="shopHallOverlay">
+        <h1 className="srOnly">Tienda del reino</h1>
+
+        <div className="shopLayout">
+          <CatalogueSidebar
+            categories={categoryNames}
+            selectedCategory={selectedCategory}
+            onCategoryChange={setSelectedCategory}
+            searchQuery={searchQuery}
+            onSearchChange={setSearchQuery}
+            onCreateClick={handleOpenCreate}
+            onReloadClick={handleReload}
+          />
+
+          <div className="shopCatalogue">
+            <CatalogueHeading />
 
             {successMessage && (
-              <div className="alertBox alertSuccess" role="alert">
-                <span className="alertIcon">✓</span>
+              <div className="shopNotice shopNoticeSuccess" role="status">
                 <p>{successMessage}</p>
                 <button
                   type="button"
-                  className="alertDismissBtn"
+                  className="shopNoticeDismiss"
                   onClick={() => setSuccessMessage('')}
                   aria-label="Cerrar notificación"
                 >
@@ -203,12 +224,11 @@ const Products = () => {
             )}
 
             {errorMessage && (
-              <div className="alertBox alertError" role="alert">
-                <span className="alertIcon">⚠</span>
+              <div className="shopNotice shopNoticeError" role="alert">
                 <p>{errorMessage}</p>
                 <button
                   type="button"
-                  className="alertDismissBtn"
+                  className="shopNoticeDismiss"
                   onClick={() => setErrorMessage('')}
                   aria-label="Cerrar error"
                 >
@@ -217,36 +237,25 @@ const Products = () => {
               </div>
             )}
 
-            <div className="productsActionBar">
-              <button
-                type="button"
-                className="createBtn"
-                onClick={handleOpenCreate}
-              >
-                + Registrar nueva mercancía
-              </button>
-            </div>
-
             <ProductList
-              products={products}
-              categories={categories}
+              products={filteredProducts}
               isLoading={isLoading}
               onView={handleOpenView}
-              onEdit={handleOpenEdit}
-              onDelete={handleOpenDelete}
             />
           </div>
-        </main>
+        </div>
       </div>
+
+      <div className="shopCounter" aria-hidden="true" />
 
       <ProductModal
         isOpen={isModalOpen}
         onClose={handleCloseModal}
         title={
           modalMode === 'create'
-            ? 'Nueva Mercancía'
+            ? 'Inscribir Mercancía'
             : modalMode === 'edit'
-            ? 'Editar Mercancía'
+            ? 'Enmendar Mercancía'
             : modalMode === 'view'
             ? 'Detalles de la Mercancía'
             : 'Confirmar Eliminación'
@@ -294,6 +303,20 @@ const Products = () => {
             <div className="detailActions">
               <button
                 type="button"
+                className="formBtn btnPrimary"
+                onClick={() => handleOpenEdit(selectedProduct)}
+              >
+                Enmendar
+              </button>
+              <button
+                type="button"
+                className="formBtn btnDeleteModal"
+                onClick={() => handleOpenDelete(selectedProduct)}
+              >
+                Retirar
+              </button>
+              <button
+                type="button"
                 className="formBtn btnSecondary"
                 onClick={handleCloseModal}
               >
@@ -330,6 +353,117 @@ const Products = () => {
           </div>
         )}
       </ProductModal>
+    </section>
+  );
+};
+
+const CatalogueHeading = () => {
+  return (
+    <div className="shopHeading">
+      <HeadingRule flip />
+      <h2 className="shopHeadingTitle">Todos los productos</h2>
+      <HeadingRule />
+    </div>
+  );
+};
+
+const HeadingRule = ({ flip = false }) => {
+  return (
+    <span className="shopHeadingRule" aria-hidden="true">
+      {flip && <HeadingFinial flip />}
+      <span className="shopHeadingLine" />
+      {!flip && <HeadingFinial />}
+    </span>
+  );
+};
+
+const HeadingFinial = ({ flip = false }) => {
+  return (
+    <svg
+      width="42"
+      height="12"
+      viewBox="0 0 42 12"
+      fill="none"
+      className="shopHeadingFinial"
+      style={flip ? { transform: 'scaleX(-1)' } : undefined}
+    >
+      <path d="M0 6h20" stroke="currentColor" strokeWidth="1" />
+      <path d="M26 1.5 30.5 6 26 10.5 21.5 6z" fill="currentColor" opacity="0.85" />
+      <path d="M35 3.5 37.5 6 35 8.5 32.5 6z" fill="currentColor" opacity="0.6" />
+      <path d="M39.5 4.5 41.5 6l-2 1.5z" fill="currentColor" opacity="0.4" />
+    </svg>
+  );
+};
+
+const CatalogueSidebar = ({
+  categories,
+  selectedCategory,
+  onCategoryChange,
+  searchQuery,
+  onSearchChange,
+  onCreateClick,
+  onReloadClick,
+}) => {
+  return (
+    <div className="shopSidebar">
+      <aside className="shopPanel">
+        <span className="shopPanelCorner shopPanelCornerTl" aria-hidden="true" />
+        <span className="shopPanelCorner shopPanelCornerTr" aria-hidden="true" />
+        <span className="shopPanelCorner shopPanelCornerBl" aria-hidden="true" />
+        <span className="shopPanelCorner shopPanelCornerBr" aria-hidden="true" />
+
+        <nav aria-label="Categorías">
+          <h2 className="shopPanelTitle">Categorías</h2>
+          <div className="shopCategoryList">
+            {categories.map((categoryName) => (
+              <button
+                key={categoryName}
+                type="button"
+                className="shopCategoryBtn"
+                aria-pressed={selectedCategory === categoryName}
+                onClick={() => onCategoryChange(categoryName)}
+              >
+                {categoryName}
+              </button>
+            ))}
+          </div>
+        </nav>
+
+        <div className="shopPanelSearch">
+          <h2 className="shopPanelTitle">Buscar</h2>
+          <label className="srOnly" htmlFor="searchProduct">
+            Buscar mercancía
+          </label>
+          <input
+            id="searchProduct"
+            type="search"
+            value={searchQuery}
+            onChange={(e) => onSearchChange(e.target.value)}
+            placeholder="Buscar mercancía…"
+            className="shopSearchInput"
+          />
+          <div className="shopPanelActions">
+            <button type="button" className="shopPanelBtn shopPanelBtnSolid" onClick={onCreateClick}>
+              Inscribir mercancía
+            </button>
+            <button type="button" className="shopPanelBtn shopPanelBtnOutline" onClick={onReloadClick}>
+              Recargar
+            </button>
+          </div>
+        </div>
+      </aside>
+
+      <div className="shopHeraldry" aria-hidden="true">
+        <img src={bannerImg} alt="" width={576} height={1152} className="shopHeraldryBanner" />
+        <img
+          src={lanternImg}
+          alt=""
+          width={672}
+          height={992}
+          loading="lazy"
+          className="shopHeraldryLantern"
+        />
+      </div>
     </div>
   );
 };

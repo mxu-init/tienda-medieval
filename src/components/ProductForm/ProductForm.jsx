@@ -1,7 +1,13 @@
 import { useState } from 'react';
 import './ProductForm.css';
 
-const ProductForm = ({ initialData, categories, onSubmit, onCancel, isSubmitting }) => {
+const ProductForm = ({
+  initialData,
+  categories = [],
+  onSubmit,
+  onCancel,
+  isSubmitting,
+}) => {
   const [formData, setFormData] = useState(() => {
     let firstImage = 'https://picsum.photos/640/480';
     if (initialData?.images && initialData.images.length > 0) {
@@ -14,7 +20,11 @@ const ProductForm = ({ initialData, categories, onSubmit, onCancel, isSubmitting
       title: initialData?.title || '',
       price: initialData?.price ? String(initialData.price) : '',
       description: initialData?.description || '',
-      categoryId: initialData?.category?.id ? String(initialData.category.id) : categories[0]?.id ? String(categories[0].id) : '1',
+      categoryId: initialData?.category?.id
+        ? String(initialData.category.id)
+        : categories[0]?.id
+        ? String(categories[0].id)
+        : '1',
       imageUrl: firstImage,
     };
   });
@@ -32,7 +42,7 @@ const ProductForm = ({ initialData, categories, onSubmit, onCancel, isSubmitting
   const validate = () => {
     const newErrors = {};
     if (!formData.title.trim()) {
-      newErrors.title = 'El título de la mercancía es obligatorio.';
+      newErrors.title = 'El nombre de la mercancía es obligatorio.';
     }
     if (!formData.price || isNaN(Number(formData.price)) || Number(formData.price) <= 0) {
       newErrors.price = 'Ingrese un precio válido superior a 0.';
@@ -67,20 +77,16 @@ const ProductForm = ({ initialData, categories, onSubmit, onCancel, isSubmitting
 
   return (
     <form className="productFormParchment" onSubmit={handleSubmit} noValidate>
-      <h2 className="productFormTitle">
-        {initialData ? 'Editar Mercancía' : 'Registrar Nueva Mercancía'}
-      </h2>
-
-      <div className="formGroup">
-        <label htmlFor="productTitleInput" className="formLabel">
-          Título de la mercancía
+      <div className="formFieldGroup">
+        <label htmlFor="productTitleInput" className="formFieldLabel">
+          Nombre
         </label>
         <input
           id="productTitleInput"
           type="text"
           name="title"
-          className={`formInput ${errors.title ? 'inputError' : ''}`}
-          placeholder="Ej. Espada de Acero de Toledo"
+          className={`formFieldControl ${errors.title ? 'controlError' : ''}`}
+          placeholder="Nombre de la mercancía..."
           value={formData.title}
           onChange={handleChange}
           aria-invalid={Boolean(errors.title)}
@@ -88,15 +94,15 @@ const ProductForm = ({ initialData, categories, onSubmit, onCancel, isSubmitting
           required
         />
         {errors.title && (
-          <span id="titleError" className="errorMessage" role="alert">
+          <span id="titleError" className="formFieldErrorText" role="alert">
             {errors.title}
           </span>
         )}
       </div>
 
-      <div className="formGroup">
-        <label htmlFor="productPriceInput" className="formLabel">
-          Precio (en monedas de oro)
+      <div className="formFieldGroup">
+        <label htmlFor="productPriceInput" className="formFieldLabel">
+          Precio en monedas de oro
         </label>
         <input
           id="productPriceInput"
@@ -104,8 +110,8 @@ const ProductForm = ({ initialData, categories, onSubmit, onCancel, isSubmitting
           name="price"
           min="1"
           step="any"
-          className={`formInput ${errors.price ? 'inputError' : ''}`}
-          placeholder="150"
+          className={`formFieldControl ${errors.price ? 'controlError' : ''}`}
+          placeholder="100"
           value={formData.price}
           onChange={handleChange}
           aria-invalid={Boolean(errors.price)}
@@ -113,64 +119,45 @@ const ProductForm = ({ initialData, categories, onSubmit, onCancel, isSubmitting
           required
         />
         {errors.price && (
-          <span id="priceError" className="errorMessage" role="alert">
+          <span id="priceError" className="formFieldErrorText" role="alert">
             {errors.price}
           </span>
         )}
       </div>
 
-      <div className="formGroup">
-        <label htmlFor="productCategorySelect" className="formLabel">
-          Categoría / Gremio
-        </label>
-        <select
-          id="productCategorySelect"
-          name="categoryId"
-          className="formSelect"
-          value={formData.categoryId}
-          onChange={handleChange}
-        >
-          {categories.map((cat) => (
-            <option key={cat.id} value={cat.id}>
-              {cat.name}
-            </option>
-          ))}
-        </select>
-      </div>
+      {categories.length > 0 && (
+        <div className="formFieldGroup">
+          <label htmlFor="productCategorySelect" className="formFieldLabel">
+            Categoría / Gremio
+          </label>
+          <select
+            id="productCategorySelect"
+            name="categoryId"
+            className="formFieldControl formFieldSelect"
+            value={formData.categoryId}
+            onChange={handleChange}
+          >
+            {categories.map((cat) => (
+              <option key={cat.id} value={cat.id}>
+                {cat.name}
+              </option>
+            ))}
+          </select>
+        </div>
+      )}
 
-      <div className="formGroup">
-        <label htmlFor="productImageUrlInput" className="formLabel">
-          URL de la imagen de la mercancía
-        </label>
-        <input
-          id="productImageUrlInput"
-          type="url"
-          name="imageUrl"
-          className={`formInput ${errors.imageUrl ? 'inputError' : ''}`}
-          placeholder="https://ejemplo.com/imagen.jpg"
-          value={formData.imageUrl}
-          onChange={handleChange}
-          aria-invalid={Boolean(errors.imageUrl)}
-          aria-describedby={errors.imageUrl ? 'imageUrlError' : undefined}
-          required
-        />
-        {errors.imageUrl && (
-          <span id="imageUrlError" className="errorMessage" role="alert">
-            {errors.imageUrl}
-          </span>
-        )}
-      </div>
-
-      <div className="formGroup">
-        <label htmlFor="productDescriptionInput" className="formLabel">
-          Descripción detallada
+      <div className="formFieldGroup">
+        <label htmlFor="productDescriptionInput" className="formFieldLabel">
+          Descripción
         </label>
         <textarea
           id="productDescriptionInput"
           name="description"
-          rows="4"
-          className={`formInput formTextarea ${errors.description ? 'inputError' : ''}`}
-          placeholder="Describa la calidad, materiales y origen de la mercancía..."
+          rows={3}
+          className={`formFieldControl formFieldTextarea ${
+            errors.description ? 'controlError' : ''
+          }`}
+          placeholder="Descripción de la mercancía..."
           value={formData.description}
           onChange={handleChange}
           aria-invalid={Boolean(errors.description)}
@@ -178,31 +165,50 @@ const ProductForm = ({ initialData, categories, onSubmit, onCancel, isSubmitting
           required
         />
         {errors.description && (
-          <span id="descriptionError" className="errorMessage" role="alert">
+          <span id="descriptionError" className="formFieldErrorText" role="alert">
             {errors.description}
           </span>
         )}
       </div>
 
-      <div className="formActions">
+      <div className="formFieldGroup">
+        <label htmlFor="productImageUrlInput" className="formFieldLabel">
+          Grabado (URL)
+        </label>
+        <input
+          id="productImageUrlInput"
+          type="url"
+          name="imageUrl"
+          className={`formFieldControl ${errors.imageUrl ? 'controlError' : ''}`}
+          placeholder="https://ejemplo.com/grabado.jpg"
+          value={formData.imageUrl}
+          onChange={handleChange}
+          aria-invalid={Boolean(errors.imageUrl)}
+          aria-describedby={errors.imageUrl ? 'imageUrlError' : undefined}
+          required
+        />
+        {errors.imageUrl && (
+          <span id="imageUrlError" className="formFieldErrorText" role="alert">
+            {errors.imageUrl}
+          </span>
+        )}
+      </div>
+
+      <div className="formActionsGroup">
+        <button
+          type="submit"
+          className="formActionBtn formActionBtnSolid"
+          disabled={isSubmitting}
+        >
+          {isSubmitting ? 'Sellando...' : 'Sellar'}
+        </button>
         <button
           type="button"
-          className="formBtn btnSecondary"
+          className="formActionBtn formActionBtnOutline"
           onClick={onCancel}
           disabled={isSubmitting}
         >
           Cancelar
-        </button>
-        <button
-          type="submit"
-          className="formBtn btnPrimary"
-          disabled={isSubmitting}
-        >
-          {isSubmitting
-            ? 'Guardando...'
-            : initialData
-            ? 'Guardar Cambios'
-            : 'Registrar Mercancía'}
         </button>
       </div>
     </form>
