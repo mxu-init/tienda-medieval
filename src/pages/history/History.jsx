@@ -3,7 +3,7 @@ import stoneImg from '../../assets/img/stone.jpg';
 import parchmentImg from '../../assets/img/parchment.jpg';
 import bannerImg from '../../assets/img/banner.png';
 import lanternImg from '../../assets/img/lantern.png';
-import villageImg from '../../assets/img/village.jpg';
+import townImg from '../../assets/img/town.jpg';
 import sealImg from '../../assets/img/seal.png';
 import './History.css';
 
@@ -108,7 +108,7 @@ const History = () => {
 
                                 <div className="historyImgWrapper">
                                     <img
-                                        src={villageImg}
+                                        src={townImg}
                                         alt="Grabado de una villa medieval con castillo al fondo"
                                         className="historyEngravingImg"
                                     />
