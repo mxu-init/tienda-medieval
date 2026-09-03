@@ -12,7 +12,6 @@ export const SALESPEOPLE = [
     town: 'Villa de Aldoria',
     admittedYear: 1048,
     image: mauricioImg,
-    category: 'Electronics'
   },
   {
     name: 'Óscar Clegane',
@@ -21,7 +20,6 @@ export const SALESPEOPLE = [
     town: 'Villa de Aldoria',
     admittedYear: 1041,
     image: oscarImg,
-    category: 'Furniture'
   },
   {
     name: 'William Snow',
@@ -30,7 +28,6 @@ export const SALESPEOPLE = [
     town: 'Villa de Aldoria',
     admittedYear: 1044,
     image: williamImg,
-    category: 'Miscellaneous'
   },
   {
     name: 'Konsta Stark',
@@ -39,7 +36,6 @@ export const SALESPEOPLE = [
     town: 'Villa de Aldoria',
     admittedYear: 1050,
     image: knstaImg,
-    category: 'Shoes'
   },
   {
     name: 'Marisa Targaryen',
@@ -48,6 +44,5 @@ export const SALESPEOPLE = [
     town: 'Villa de Aldoria',
     admittedYear: 1046,
     image: marisaImg,
-    category: 'Clothes'
   },
 ];
