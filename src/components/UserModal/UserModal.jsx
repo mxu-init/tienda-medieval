@@ -3,8 +3,8 @@ import './UserModal.css';
 
 const UserModal = ({ isOpen, onClose, title, children }) => {
   useEffect(() => {
-    const handleKeyDown = (e) => {
-      if (e.key === 'Escape') {
+    const handleKeyDown = (event) => {
+      if (event.key === 'Escape') {
         onClose();
       }
     };
@@ -15,7 +15,7 @@ const UserModal = ({ isOpen, onClose, title, children }) => {
     }
 
     return () => {
-      document.body.style.overflow = 'auto';
+      document.body.style.overflow = '';
       window.removeEventListener('keydown', handleKeyDown);
     };
   }, [isOpen, onClose]);
@@ -25,32 +25,28 @@ const UserModal = ({ isOpen, onClose, title, children }) => {
   }
 
   return (
-    <div
-      className="modalBackdrop userModalBackdrop"
-      onClick={onClose}
-      role="presentation"
-    >
+    <div className="userModalBackdrop" onClick={onClose} role="presentation">
       <div
-        className="modalContainer userModalContainer"
-        onClick={(e) => e.stopPropagation()}
+        className="userModalContainer"
+        onClick={(event) => event.stopPropagation()}
         role="dialog"
         aria-modal="true"
-        aria-labelledby="modalTitle"
+        aria-labelledby="userModalTitle"
       >
-        <header className="modalHeader userModalHeader">
-          <h2 id="modalTitle" className="modalTitle userModalTitle">
+        <header className="userModalHeader">
+          <h2 id="userModalTitle" className="userModalTitle">
             {title}
           </h2>
           <button
             type="button"
-            className="modalCloseBtn userModalCloseBtn"
+            className="userModalCloseBtn"
             onClick={onClose}
-            aria-label="Cerrar modal"
+            aria-label="Cerrar"
           >
             ✕
           </button>
         </header>
-        <div className="modalBody userModalBody">{children}</div>
+        <div className="userModalBody">{children}</div>
       </div>
     </div>
   );
