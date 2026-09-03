@@ -1,14 +1,28 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import ProductCard from '../ProductCard/ProductCard';
 import './ProductList.css';
 
 const ITEMS_PER_PAGE = 8;
 
 const ProductList = ({ products, categories, isLoading, onView, onEdit, onDelete }) => {
+  const [searchParams] = useSearchParams();
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [viewMode, setViewMode] = useState('grid');
   const [currentPage, setCurrentPage] = useState(1);
+
+  useEffect(() => {
+    const categoryParam = searchParams.get('category');
+    if (categoryParam && categories.length > 0) {
+      const match = categories.find(
+        (cat) => cat.name.toLowerCase() === categoryParam.toLowerCase()
+      );
+      if (match) {
+        setSelectedCategory(String(match.id));
+      }
+    }
+  }, [searchParams, categories]);
 
   const filteredProducts = products.filter((product) => {
     const matchesTitle = product.title?.toLowerCase().includes(searchQuery.toLowerCase());
