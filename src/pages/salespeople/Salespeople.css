@@ -31,7 +31,7 @@
 }
 
 .salespeoplePageTitle {
-    font-family: 'Cinzel', serif;
+    font-family: "Cinzel", serif;
     font-size: 2.2rem;
     font-weight: 800;
     color: #4a0e0c;
@@ -41,7 +41,7 @@
 }
 
 .salespeoplePageSubtitle {
-    font-family: 'Cinzel', serif;
+    font-family: "Cinzel", serif;
     font-size: 1rem;
     color: #634621;
     margin: 0 auto 16px;
@@ -59,7 +59,10 @@
 .inkRule {
     flex: 1;
     height: 2px;
-    background: linear-gradient(90deg, transparent 0%, #8c6a38 50%, transparent 100%);
+    background: linear-gradient(90deg,
+            transparent 0%,
+            #8c6a38 50%,
+            transparent 100%);
     max-width: 260px;
 }
 
@@ -92,7 +95,9 @@
     border: 2px solid rgba(85, 60, 30, 0.55);
     border-radius: 8px;
     background-color: rgba(220, 200, 170, 0.75);
-    box-shadow: inset 0 0 26px rgba(70, 50, 30, 0.22), 0 4px 10px rgba(0, 0, 0, 0.25);
+    box-shadow:
+        inset 0 0 26px rgba(70, 50, 30, 0.22),
+        0 4px 10px rgba(0, 0, 0, 0.25);
     padding: 20px;
     text-align: left;
 }
@@ -112,7 +117,7 @@
 }
 
 .salespersonName {
-    font-family: 'Cinzel', serif;
+    font-family: "Cinzel", serif;
     font-size: 1.3rem;
     color: #3b1b08;
     margin: 0;
@@ -157,15 +162,19 @@
 .viewWorkshopBtn {
     margin-top: 16px;
     width: 100%;
+    box-sizing: border-box;
     padding: 10px;
-    font-family: 'Cinzel', serif;
+    font-family: "Cinzel", serif;
     font-size: 0.85rem;
     letter-spacing: 1px;
     background: transparent;
-    border: 2px solid #6c1613;
+    border: 2.5px solid #d4af6a;
     color: #4a0e0c;
     border-radius: 6px;
     cursor: pointer;
+    display: block;
+    text-align: center;
+    text-decoration: none;
 }
 
 .viewWorkshopBtn:hover {
@@ -182,6 +191,7 @@
         font-size: 1.6rem;
     }
 }
+
 @media (max-width: 420px) {
     .salespersonCardTop {
         flex-direction: column;
