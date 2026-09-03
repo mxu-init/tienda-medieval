@@ -28,7 +28,12 @@ export const getProductById = async (id, signal) => {
 
 export const createProduct = async (productData) => {
   try {
-    const response = await api.post('/products', productData);
+    const payload = { ...productData };
+    if ('categoryId' in payload) {
+      payload.category_id = payload.categoryId;
+      delete payload.categoryId;
+    }
+    const response = await api.post('/products', payload);
     if (!response.data || response.data.length === 0) {
       throw new Error('No se pudo registrar la mercancía. Verifique los permisos de acceso.');
     }
@@ -41,7 +46,12 @@ export const createProduct = async (productData) => {
 
 export const updateProduct = async (id, productData) => {
   try {
-    const response = await api.patch(`/products?id=eq.${id}`, productData);
+    const payload = { ...productData };
+    if ('categoryId' in payload) {
+      payload.category_id = payload.categoryId;
+      delete payload.categoryId;
+    }
+    const response = await api.patch(`/products?id=eq.${id}`, payload);
     if (!response.data || response.data.length === 0) {
       throw new Error('No se pudo actualizar la mercancía. Verifique las políticas de acceso (RLS) en la base de datos.');
     }
