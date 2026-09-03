@@ -111,7 +111,7 @@ Inventario de mercancías del catálogo.
 | `slug` | `TEXT` | Slug identificador. |
 | `price` | `NUMERIC(10,2)` | Precio en monedas de oro. |
 | `description` | `TEXT` | Descripción detallada del artículo. |
-| `category_id` | `BIGINT` (FK) | Referencia al ID de `categories`. |
+| `categoryId` | `BIGINT` (FK) | Referencia al ID de `categories`. |
 | `images` | `TEXT[]` | Arreglo de URLs de imágenes del producto. |
 
 #### Listar Productos con Categoría Nivel Anidado (`GET /products`)
@@ -157,7 +157,7 @@ curl -X POST "https://ncqxvrgpzevmanyfkuvs.supabase.co/rest/v1/products" \
     "title": "Espada de Acero Valyrio",
     "price": 250,
     "description": "Forjada por maestros herreros.",
-    "category_id": 1,
+    "categoryId": 1,
     "images": ["https://i.imgur.com/example.jpg"]
   }'
 
