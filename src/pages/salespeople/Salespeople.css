@@ -1,23 +1,117 @@
 .salespeoplePageShell {
     min-height: 100vh;
     width: 100%;
+    box-sizing: border-box;
+}
+
+.salespeoplePageShell *,
+.salespeoplePageShell *::before,
+.salespeoplePageShell *::after {
+    box-sizing: border-box;
 }
 
 .salespeoplePageOverlay {
+    min-height: 100vh;
+    width: 100%;
+    background-color: rgba(20, 18, 16, 0.55);
     display: flex;
+    flex-direction: column;
+}
+
+.spMobileHeraldry {
+    display: flex;
+    align-items: center;
     justify-content: center;
-    padding: 32px 16px;
+    gap: 24px;
+    padding: 12px 16px;
+    overflow: hidden;
+    background: rgba(15, 13, 11, 0.4);
+}
+
+.spMobileBannerImg {
+    height: 74px;
+    width: auto;
+    filter: drop-shadow(0 8px 14px rgba(0, 0, 0, 0.7));
+}
+
+.spMobileLanternImg {
+    height: 62px;
+    width: auto;
+    filter: drop-shadow(0 0 30px rgba(220, 175, 75, 0.45));
+}
+
+@media (min-width: 1024px) {
+    .spMobileHeraldry {
+        display: none;
+    }
+}
+
+.salespeopleLayoutBody {
+    position: relative;
+    display: flex;
+    flex: 1;
+    align-items: stretch;
+}
+
+.spLeftRail {
+    display: none;
+    position: relative;
+    width: 300px;
+    flex-shrink: 0;
+}
+
+@media (min-width: 1024px) {
+    .spLeftRail {
+        display: block;
+    }
+}
+
+.spLeftRailBanner {
+    position: absolute;
+    top: 0;
+    left: 52px;
+    width: 190px;
+    filter: drop-shadow(0 14px 22px rgba(0, 0, 0, 0.75));
+    z-index: 2;
+}
+
+.spLeftRailLantern {
+    position: absolute;
+    top: 430px;
+    left: 6px;
+    width: 132px;
+    filter: drop-shadow(0 0 44px rgba(220, 175, 75, 0.45));
+    z-index: 2;
+}
+
+.spLeftRailLanternGlow {
+    pointer-events: none;
+    position: absolute;
+    top: 410px;
+    left: -20px;
+    height: 220px;
+    width: 220px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(220, 175, 75, 0.22) 0%, transparent 70%);
+    z-index: 1;
 }
 
 .salespeopleParchmentPanel {
     position: relative;
-    width: 100%;
-    max-width: 1200px;
-    border: 4px solid #6c1613;
-    border-radius: 12px;
-    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.6);
+    flex: 1;
+    min-width: 0;
+    min-height: calc(100vh - 74px);
+    background-color: #ebd9c0;
+    color: #2e2117;
+    box-shadow: inset 0 0 90px 20px rgba(45, 33, 23, 0.22), 0 0 40px 4px rgba(0, 0, 0, 0.55);
     padding: 36px 28px;
     overflow: hidden;
+}
+
+@media (min-width: 1024px) {
+    .salespeopleParchmentPanel {
+        border-left: 2px solid rgba(85, 60, 30, 0.45);
+    }
 }
 
 .salespeopleParchmentContent {
@@ -32,18 +126,31 @@
 
 .salespeoplePageTitle {
     font-family: "Cinzel", serif;
-    font-size: 2.2rem;
-    font-weight: 800;
-    color: #4a0e0c;
+    font-size: 34px;
+    line-height: 1.1;
+    font-weight: 700;
+    color: #2e2117;
     margin: 0 0 8px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.35);
+}
+
+@media (min-width: 640px) {
+    .salespeoplePageTitle {
+        font-size: 44px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .salespeoplePageTitle {
+        font-size: 54px;
+    }
 }
 
 .salespeoplePageSubtitle {
     font-family: "Cinzel", serif;
     font-size: 1rem;
-    color: #634621;
+    font-weight: 600;
+    color: #2e2117;
     margin: 0 auto 16px;
     max-width: 620px;
     line-height: 1.5;
@@ -64,12 +171,6 @@
             #8c6a38 50%,
             transparent 100%);
     max-width: 260px;
-}
-
-.headerSealIcon {
-    width: 32px;
-    height: 32px;
-    object-fit: contain;
 }
 
 .salespeopleGrid {
@@ -99,4 +200,37 @@
     .salespeoplePageTitle {
         font-size: 1.6rem;
     }
+}
+
+.ornamentSvg {
+    flex-shrink: 0;
+    color: rgba(46, 33, 23, 0.7);
+}
+
+.sealDividerWrapper {
+    margin-top: 64px;
+    padding-bottom: 16px;
+}
+
+.sealDivider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+}
+
+.dividerRule {
+    max-width: 160px;
+}
+
+.dividerDiamond {
+    color: rgba(46, 33, 23, 0.6);
+    flex-shrink: 0;
+}
+
+.sealImg {
+    width: 96px;
+    height: auto;
+    filter: drop-shadow(0 6px 8px rgba(0, 0, 0, 0.35));
+    flex-shrink: 0;
 }
