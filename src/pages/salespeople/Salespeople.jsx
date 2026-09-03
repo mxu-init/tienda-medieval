@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { SALESPEOPLE } from '../../data/salespeople';
 import stoneImg from '../../assets/img/stone.jpg';
 import parchmentImg from '../../assets/img/parchment.jpg';
@@ -63,14 +64,19 @@ const Salespeople = () => {
                                             <dd>Anno {seller.admittedYear}</dd>
                                         </div>
                                     </dl>
-                                    <button type="button" className="viewWorkshopBtn">Ver taller</button>
+                                    <Link
+                                        to={`/products?category=${encodeURIComponent(seller.category)}`}
+                                        className="viewWorkshopBtn"
+                                    >
+                                        Ver taller
+                                    </Link>
                                 </article>
                             ))}
                         </div>
                     </div>
                 </main>
-            </div>
-        </div>
+            </div >
+        </div >
     );
 };
 
