@@ -30,7 +30,7 @@ export const createProduct = async (productData) => {
   try {
     const payload = { ...productData };
     if ('categoryId' in payload) {
-      payload.category_id = payload.categoryId;
+      payload.categoryId = payload.categoryId;
       delete payload.categoryId;
     }
     const response = await api.post('/products', payload);
@@ -48,7 +48,7 @@ export const updateProduct = async (id, productData) => {
   try {
     const payload = { ...productData };
     if ('categoryId' in payload) {
-      payload.category_id = payload.categoryId;
+      payload.categoryId = payload.categoryId;
       delete payload.categoryId;
     }
     const response = await api.patch(`/products?id=eq.${id}`, payload);
