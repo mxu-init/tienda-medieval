@@ -84,6 +84,7 @@
   letter-spacing: 0.14em;
   text-transform: uppercase;
   border: 2px solid transparent;
+  border-radius: 0;
   cursor: pointer;
   transition: all 150ms ease;
 }

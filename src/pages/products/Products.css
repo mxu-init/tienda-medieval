@@ -471,13 +471,14 @@
   align-items: center;
   justify-content: center;
   white-space: nowrap;
-  padding: 0.55rem 1.4rem;
+  padding: 0.55rem 1.6rem;
   font-family: var(--font-display);
   font-size: 13px;
   font-weight: 700;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   border: 2px solid transparent;
+  border-radius: 0;
   cursor: pointer;
   transition: all 150ms ease;
 }
@@ -486,6 +487,7 @@
   background-color: oklch(0.36 0.13 26);
   border-color: oklch(0.3 0.03 55);
   color: oklch(0.88 0.045 82);
+  border-radius: 0;
 }
 
 .btnPrimary:hover:not(:disabled) {
@@ -496,6 +498,7 @@
   background-color: transparent;
   border-color: oklch(0.34 0.04 55 / 0.7);
   color: var(--ink);
+  border-radius: 0;
 }
 
 .btnSecondary:hover:not(:disabled) {
@@ -506,6 +509,7 @@
   background-color: transparent;
   border-color: oklch(0.35 0.14 26);
   color: oklch(0.38 0.15 26);
+  border-radius: 0;
 }
 
 .btnDeleteModal:hover:not(:disabled) {
@@ -538,6 +542,7 @@
   background-color: oklch(0.36 0.13 26);
   border-color: oklch(0.3 0.03 55);
   color: oklch(0.88 0.045 82);
+  border-radius: 0;
 }
 
 .btnDeleteConfirm:hover:not(:disabled) {

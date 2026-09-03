@@ -303,7 +303,7 @@ const Products = () => {
             <div className="detailActions">
               <button
                 type="button"
-                className="formBtn btnSecondary"
+                className="formBtn btnPrimary"
                 onClick={() => handleOpenEdit(selectedProduct)}
               >
                 Enmendar
