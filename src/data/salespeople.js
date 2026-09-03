@@ -12,6 +12,7 @@ export const SALESPEOPLE = [
     town: 'Villa de Aldoria',
     admittedYear: 1048,
     image: mauricioImg,
+    category: 'Electronics'
   },
   {
     name: 'Óscar',
@@ -20,6 +21,7 @@ export const SALESPEOPLE = [
     town: 'Villa de Aldoria',
     admittedYear: 1041,
     image: oscarImg,
+    category: 'Furniture'
   },
   {
     name: 'William',
@@ -28,6 +30,7 @@ export const SALESPEOPLE = [
     town: 'Villa de Aldoria',
     admittedYear: 1044,
     image: williamImg,
+    category: 'Miscellaneous'
   },
   {
     name: 'Konsta',
@@ -36,6 +39,7 @@ export const SALESPEOPLE = [
     town: 'Villa de Aldoria',
     admittedYear: 1050,
     image: knstaImg,
+    category: 'Shoes'
   },
   {
     name: 'Marisa',
@@ -44,5 +48,6 @@ export const SALESPEOPLE = [
     town: 'Villa de Aldoria',
     admittedYear: 1046,
     image: marisaImg,
+    category: 'Clothes'
   },
 ];
