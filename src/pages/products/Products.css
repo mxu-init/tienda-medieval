@@ -389,16 +389,17 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
-  gap: 16px;
+  gap: 18px;
 }
 
 .detailProductImgWrapper {
   width: 100%;
-  max-width: 320px;
-  height: 200px;
+  max-width: 340px;
+  aspect-ratio: 4 / 3;
   overflow: hidden;
-  border: 2px solid color-mix(in oklab, var(--gold) 50%, transparent);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  border: 1px solid oklch(0.34 0.04 55 / 0.6);
+  box-shadow: 0 4px 14px oklch(0 0 0 / 0.35);
+  background-color: oklch(0.2 0.01 60);
 }
 
 .detailProductImg {
@@ -411,52 +412,104 @@
 .detailInfoGroup {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 10px;
   text-align: left;
   width: 100%;
 }
 
 .detailTitle {
   font-family: var(--font-display);
-  font-size: 1.4rem;
-  font-weight: 800;
-  color: #3b1b08;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--ink);
   margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
 }
 
 .detailPrice,
 .detailCategory,
 .detailId,
 .detailDescription {
-  font-size: 0.95rem;
-  color: #59442a;
+  font-family: var(--font-body);
+  font-size: 17px;
+  color: var(--ink);
   margin: 0;
   line-height: 1.5;
+}
+
+.detailPrice strong,
+.detailCategory strong,
+.detailId strong,
+.detailDescription strong {
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #17100a;
+  margin-right: 4px;
 }
 
 .categoryTag {
   font-family: var(--font-display);
   font-weight: 700;
-  color: #6c1613;
+  color: oklch(0.36 0.13 26);
 }
 
 .detailActions {
-  margin-top: 16px;
+  margin-top: 14px;
   width: 100%;
   display: flex;
+  flex-wrap: wrap;
   gap: 10px;
-  justify-content: flex-end;
+  justify-content: flex-start;
+}
+
+.formBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  padding: 0.55rem 1.4rem;
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: all 150ms ease;
+}
+
+.btnPrimary {
+  background-color: oklch(0.36 0.13 26);
+  border-color: oklch(0.3 0.03 55);
+  color: oklch(0.88 0.045 82);
+}
+
+.btnPrimary:hover:not(:disabled) {
+  background-color: oklch(0.31 0.12 26);
+}
+
+.btnSecondary {
+  background-color: transparent;
+  border-color: oklch(0.34 0.04 55 / 0.7);
+  color: var(--ink);
+}
+
+.btnSecondary:hover:not(:disabled) {
+  background-color: oklch(0.3 0.03 55 / 0.12);
 }
 
 .btnDeleteModal {
-  background: oklch(0.25 0.05 26);
-  color: oklch(0.85 0.08 26);
-  border-color: oklch(0.4 0.1 26 / 0.7);
+  background-color: transparent;
+  border-color: oklch(0.35 0.14 26);
+  color: oklch(0.38 0.15 26);
 }
 
-.btnDeleteModal:hover {
-  background: oklch(0.35 0.12 26);
-  color: #ffffff;
+.btnDeleteModal:hover:not(:disabled) {
+  background-color: oklch(0.45 0.17 26 / 0.12);
 }
 
 .deleteConfirmBox {
@@ -464,25 +517,31 @@
   flex-direction: column;
   gap: 20px;
   text-align: center;
+  padding: 10px 0;
 }
 
 .deleteText {
-  font-size: 1.05rem;
-  color: #3b1b08;
+  font-family: var(--font-body);
+  font-size: 18px;
+  color: var(--ink);
   line-height: 1.5;
   margin: 0;
 }
 
-.btnDeleteConfirm {
-  background: #a81c1c;
-  color: #ffffff;
-  border-color: #5e1c18;
+.deleteText strong {
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: #17100a;
 }
 
-.btnDeleteConfirm:hover:not(:disabled),
-.btnDeleteConfirm:focus-visible:not(:disabled) {
-  background: #c92424;
-  outline: 2px solid #ff4d4d;
+.btnDeleteConfirm {
+  background-color: oklch(0.36 0.13 26);
+  border-color: oklch(0.3 0.03 55);
+  color: oklch(0.88 0.045 82);
+}
+
+.btnDeleteConfirm:hover:not(:disabled) {
+  background-color: oklch(0.31 0.12 26);
 }
 
 @media (max-width: 640px) {
