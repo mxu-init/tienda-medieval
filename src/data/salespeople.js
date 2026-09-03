@@ -6,7 +6,7 @@ import oscarImg from '../assets/img/oscar.png';
 
 export const SALESPEOPLE = [
   {
-    name: 'Mauricio',
+    name: 'Mauricio Baratheon',
     craft: 'Mercader del gremio',
     workshop: 'Taller de Mauricio',
     town: 'Villa de Aldoria',
@@ -15,7 +15,7 @@ export const SALESPEOPLE = [
     category: 'Electronics'
   },
   {
-    name: 'Óscar',
+    name: 'Óscar Clegane',
     craft: 'Mercader del gremio',
     workshop: 'Taller de Óscar',
     town: 'Villa de Aldoria',
@@ -24,7 +24,7 @@ export const SALESPEOPLE = [
     category: 'Furniture'
   },
   {
-    name: 'William',
+    name: 'William Snow',
     craft: 'Mercader del gremio',
     workshop: 'Taller de William',
     town: 'Villa de Aldoria',
@@ -33,7 +33,7 @@ export const SALESPEOPLE = [
     category: 'Miscellaneous'
   },
   {
-    name: 'Konsta',
+    name: 'Konsta Stark',
     craft: 'Mercader del gremio',
     workshop: 'Taller de Konsta',
     town: 'Villa de Aldoria',
@@ -42,7 +42,7 @@ export const SALESPEOPLE = [
     category: 'Shoes'
   },
   {
-    name: 'Marisa',
+    name: 'Marisa Targaryen',
     craft: 'Mercader del gremio',
     workshop: 'Taller de Marisa',
     town: 'Villa de Aldoria',
