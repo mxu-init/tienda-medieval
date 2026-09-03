@@ -1,0 +1,120 @@
+.productFormParchment {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+}
+
+.formFieldGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.formFieldLabel {
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #17100a;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.45);
+  margin-bottom: 2px;
+}
+
+.formFieldControl {
+  display: block;
+  width: 100%;
+  padding: 0.65rem 0.85rem;
+  font-family: var(--font-body);
+  font-size: 17px;
+  color: var(--ink);
+  background-color: oklch(0.92 0.04 84 / 0.7);
+  border: 1px solid oklch(0.34 0.04 55 / 0.6);
+  transition: border-color 150ms ease, box-shadow 150ms ease;
+}
+
+.formFieldControl:focus-visible {
+  outline: 2px solid oklch(0.3 0.03 55);
+  outline-offset: 1px;
+}
+
+.formFieldTextarea {
+  resize: vertical;
+  min-height: 85px;
+  font-family: var(--font-body);
+  font-size: 17px;
+  line-height: 1.4;
+}
+
+.formFieldSelect {
+  cursor: pointer;
+}
+
+.controlError {
+  border-color: oklch(0.45 0.17 26) !important;
+  background-color: oklch(0.92 0.08 26 / 0.25);
+}
+
+.formFieldErrorText {
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 700;
+  color: oklch(0.42 0.16 26);
+  margin-top: 2px;
+}
+
+.formActionsGroup {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 8px;
+  padding-top: 4px;
+}
+
+.formActionBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  padding: 0.55rem 1.6rem;
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  border: 2px solid transparent;
+  border-radius: 0;
+  cursor: pointer;
+  transition: all 150ms ease;
+}
+
+.formActionBtn:focus-visible {
+  outline: 2px solid oklch(0.3 0.03 55);
+  outline-offset: 2px;
+}
+
+.formActionBtn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.formActionBtnSolid {
+  background-color: oklch(0.36 0.13 26);
+  border-color: oklch(0.3 0.03 55);
+  color: oklch(0.88 0.045 82);
+}
+
+.formActionBtnSolid:hover:not(:disabled) {
+  background-color: oklch(0.31 0.12 26);
+}
+
+.formActionBtnOutline {
+  background-color: transparent;
+  border-color: oklch(0.34 0.04 55 / 0.7);
+  color: var(--ink);
+}
+
+.formActionBtnOutline:hover:not(:disabled) {
+  background-color: oklch(0.3 0.03 55 / 0.12);
+}

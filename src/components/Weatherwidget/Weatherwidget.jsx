@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import {getAllWeather} from '../../services/WidgetServices.jsx';
+
+
 import './Weatherwidget.css';
 
 // Coordenadas de respaldo si el usuario no da permiso de ubicación (Madrid)
 const fallbackCoords = { latitude: 40.4168, longitude: -3.7038 };
 
-// Traduce el "weathercode" que devuelve la API a un texto y un ícono simple
+
 const getWeatherInfo = (code) => {
     if (code === 0) return { label: 'Despejado', icon: 'sun' };
     if ([1, 2].includes(code)) return { label: 'Mayormente despejado', icon: 'sun' };
@@ -18,7 +21,7 @@ const getWeatherInfo = (code) => {
     return { label: 'Clima variable', icon: 'cloud' };
 };
 
-// Íconos mínimos en SVG (sin librerías externas, para no añadir dependencias)
+
 const WeatherIcon = ({ type }) => {
     const icons = {
         sun: (
@@ -81,24 +84,23 @@ const WeatherIcon = ({ type }) => {
     return icons[type] || icons.cloud;
 };
 
-const WeatherWidget = ({ place = 'Tu villa' }) => {
+const WeatherWidget = ({ place = '' }) => {
     const [now, setNow] = useState(new Date());
     const [weather, setWeather] = useState(null);
     const [hasError, setHasError] = useState(false);
 
-    // Reloj: actualiza la hora mostrada cada minuto
+    
     useEffect(() => {
         const clockTimer = setInterval(() => setNow(new Date()), 60000);
         return () => clearInterval(clockTimer);
     }, []);
 
-    // Clima: pide la ubicación del navegador y consulta Open-Meteo (gratis, sin API key)
+    
     useEffect(() => {
         const fetchWeather = async ({ latitude, longitude }) => {
             try {
-                const url = `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current_weather=true`;
-                const response = await axios.get(url);
-                setWeather(response.data.current_weather);
+                const response = await getAllWeather(latitude, longitude);
+                setWeather(response.current_weather);
             } catch (error) {
                 console.error('No se pudo obtener el clima:', error);
                 setHasError(true);
@@ -108,7 +110,7 @@ const WeatherWidget = ({ place = 'Tu villa' }) => {
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(
                 (position) => fetchWeather(position.coords),
-                () => fetchWeather(fallbackCoords) // si el usuario no da permiso, se usa la ciudad de respaldo
+                () => fetchWeather(fallbackCoords)
             );
         } else {
             fetchWeather(fallbackCoords);

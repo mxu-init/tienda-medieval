@@ -2,8 +2,11 @@ import "./App.css";
 import { Routes, Route } from "react-router-dom";
 import Home from "./pages/home/Home";
 import Users from "./pages/users/Users";
+import Products from "./pages/products/Products";
+import History from "./pages/history/History";
+import Salespeople from "./pages/salespeople/Salespeople";
 import Header from "./components/Header/Header";
-import Footer from "./components/Footer/Footer";
+import Footer from "@/components/Footer/Footer";
 
 function App() {
   return (
@@ -12,6 +15,9 @@ function App() {
       <main className="">
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/salespeople" element={<Salespeople />} />
+          <Route path="/history" element={<History />} />
+          <Route path="/store" element={<Products />} />
           <Route path="/users" element={<Users />} />
         </Routes>
       </main>

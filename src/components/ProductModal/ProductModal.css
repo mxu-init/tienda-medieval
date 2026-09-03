@@ -1,0 +1,140 @@
+.modalBackdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background-color: oklch(0.08 0.01 60 / 0.75);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  overflow-y: auto;
+  animation: modalFadeIn 0.2s ease-out;
+}
+
+.modalContainer {
+  position: relative;
+  width: 100%;
+  max-width: 560px;
+  max-height: 92vh;
+  overflow-y: auto;
+  background-color: oklch(0.88 0.045 82);
+  background-image: var(--parchmentTexture);
+  background-size: 1200px;
+  background-repeat: repeat;
+  border: 2px solid oklch(0.36 0.04 55 / 0.7);
+  box-shadow: 0 18px 50px oklch(0 0 0 / 0.7);
+  padding: 28px 30px;
+  animation: modalSlideDown 0.25s ease-out;
+}
+
+.modalInnerBorder {
+  position: absolute;
+  inset: 6px;
+  pointer-events: none;
+  border: 1px solid oklch(0.36 0.04 55 / 0.35);
+}
+
+.modalHeader {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.modalTitle {
+  font-family: var(--font-display);
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--ink);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin: 0 40px 10px 0;
+}
+
+.modalCloseBtn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 10;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: 1px solid oklch(0.34 0.04 55 / 0.6);
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 150ms ease, color 150ms ease;
+}
+
+.modalCloseBtn:hover {
+  background-color: oklch(0.3 0.03 55 / 0.15);
+  color: oklch(0.18 0.03 45);
+}
+
+.modalCloseBtn:focus-visible {
+  outline: 2px solid oklch(0.3 0.03 55);
+  outline-offset: 2px;
+}
+
+.modalOrnament {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 6px;
+}
+
+.modalOrnamentLine {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    oklch(0.235 0.038 52 / 0.45) 20%,
+    oklch(0.235 0.038 52 / 0.45) 80%,
+    transparent
+  );
+}
+
+.modalOrnamentGlyph {
+  flex-shrink: 0;
+  color: oklch(0.235 0.038 52 / 0.7);
+}
+
+.modalBody {
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes modalSlideDown {
+  from {
+    transform: translateY(-16px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@media (max-width: 640px) {
+  .modalContainer {
+    padding: 20px 18px;
+  }
+
+  .modalTitle {
+    font-size: 20px;
+  }
+}

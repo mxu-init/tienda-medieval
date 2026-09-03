@@ -20,6 +20,21 @@ export const getUsers = async (signal) => {
   }
 };
 
+export const getUserById = async (id, signal) => {
+  try {
+    const response = await api.get(`/users/${id}`, { signal });
+    return response.data;
+  } catch (error) {
+    if (error.name === 'CanceledError' || error.name === 'AbortError') {
+      throw error;
+    }
+    throw new Error(
+      toErrorMessage(error, `Error al obtener los detalles del usuario con ID ${id}.`),
+      { cause: error }
+    );
+  }
+};
+
 export const createUser = async (userData) => {
   try {
     const response = await api.post('/users', userData);
