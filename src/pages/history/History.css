@@ -23,7 +23,7 @@
     flex-direction: column;
 }
 
-/* Mobile Heraldry Bar (Visible < 1024px) */
+
 .mobileHeraldry {
     display: flex;
     align-items: center;
@@ -52,7 +52,7 @@
     }
 }
 
-/* Layout Body */
+
 .homeLayoutBody {
     position: relative;
     display: flex;
@@ -60,7 +60,7 @@
     align-items: stretch;
 }
 
-/* Left Rail Sidebar (Visible >= 1024px) */
+
 .leftRail {
     display: none;
     position: relative;
@@ -104,7 +104,7 @@
     z-index: 1;
 }
 
-/* Parchment Main Panel Surface */
+
 .parchmentPanel {
     position: relative;
     flex: 1;
@@ -139,7 +139,7 @@
     }
 }
 
-/* Page Header & Title */
+
 .pageHeader {
     position: relative;
     text-align: center;
@@ -168,7 +168,7 @@
     }
 }
 
-/* Decorative Ornament */
+
 .ornamentDivider {
     position: relative;
     display: flex;
@@ -196,7 +196,7 @@
     );
 }
 
-/* Vellum Wash Background Containers */
+
 .vellumWash {
     position: absolute;
     inset: -0.9rem -1.4rem;
@@ -218,7 +218,7 @@
     text-shadow: 0 1px 0 rgba(240, 230, 210, 0.55);
 }
 
-/* Historia: texto + ilustración de la villa */
+
 .historyGrid {
     margin-top: 48px;
     display: grid;
@@ -237,7 +237,7 @@
     font-family: 'EB Garamond', Georgia, serif;
     font-size: 19px;
     line-height: 1.8;
-    color: #2e2117;
+    color: #150f0a;
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -255,8 +255,24 @@
     margin: 0;
 }
 
+
 .historyImgWrapper {
+    position: relative;
     width: 100%;
+    overflow: hidden;
+}
+ 
+.historyImgWrapper::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to right,
+        rgba(255, 255, 255, 0.6) 0%,
+        rgba(255, 255, 255, 0) 40%
+    );
+    pointer-events: none;
+    z-index: 1;
 }
 
 .historyEngravingImg {
@@ -269,9 +285,10 @@
     mix-blend-mode: multiply;
     opacity: 0.95;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+   
 }
 
-/* Seal Divider Section */
+
 .sealDividerWrapper {
     margin-top: 64px;
     padding-bottom: 16px;
