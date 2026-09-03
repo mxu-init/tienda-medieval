@@ -1,0 +1,26 @@
+.inkNotice {
+  margin-top: 48px;
+  padding: 16px 20px;
+  border: 2px solid rgba(85, 60, 30, 0.55);
+  background-color: rgba(220, 200, 170, 0.75);
+}
+
+.inkNoticeTitle {
+  margin: 0 0 8px;
+  font-family: 'Cinzel', serif;
+  font-size: 14px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.inkNotice p:last-child {
+  margin: 0;
+}
+
+.inkNoticeError {
+  border-color: rgba(108, 22, 19, 0.6);
+}
+
+.inkNoticeSuccess {
+  border-color: rgba(45, 80, 45, 0.55);
+}
