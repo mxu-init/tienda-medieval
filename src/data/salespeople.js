@@ -6,7 +6,7 @@ import oscarImg from '../assets/img/oscar.png';
 
 export const SALESPEOPLE = [
   {
-    name: 'Mauricio Baratheon',
+    name: 'Mauricio Tyrell',
     craft: 'Mercader del gremio',
     workshop: 'Taller de Mauricio',
     town: 'Villa de Aldoria',
