@@ -94,7 +94,7 @@ describe('productService', () => {
 
   describe('createProduct', () => {
     it('should create product successfully and return created product object', async () => {
-      const newProductInput = { name: 'Maza de Guerra', price: 95.0, stock: 8, category_id: 1 };
+      const newProductInput = { name: 'Maza de Guerra', price: 95.0, stock: 8, categoryId: 1 };
       const createdProductResponse = { id: 3, ...newProductInput };
 
       api.post.mockResolvedValueOnce({ data: [createdProductResponse] });
@@ -105,16 +105,14 @@ describe('productService', () => {
       expect(result).toEqual(createdProductResponse);
     });
 
-    it('should normalize categoryId to category_id before sending request', async () => {
-      const inputWithCamelCaseCategory = { name: 'Hacha de Combate', price: 110.0, stock: 4, categoryId: 1 };
-      const expectedPayload = { name: 'Hacha de Combate', price: 110.0, stock: 4, category_id: 1 };
+    it('should send categoryId payload directly to products endpoint', async () => {
+      const inputWithCategory = { name: 'Hacha de Combate', price: 110.0, stock: 4, categoryId: 1 };
 
-      api.post.mockResolvedValueOnce({ data: [{ id: 4, ...expectedPayload }] });
+      api.post.mockResolvedValueOnce({ data: [{ id: 4, ...inputWithCategory }] });
 
-      await createProduct(inputWithCamelCaseCategory);
+      await createProduct(inputWithCategory);
 
-      expect(api.post).toHaveBeenCalledWith('/products', expectedPayload);
-      expect(api.post).not.toHaveBeenCalledWith('/products', expect.objectContaining({ categoryId: 1 }));
+      expect(api.post).toHaveBeenCalledWith('/products', inputWithCategory);
     });
 
     it('should throw RLS permission error when returned data array is empty', async () => {
@@ -147,15 +145,14 @@ describe('productService', () => {
       expect(result).toEqual(updatedProductResponse);
     });
 
-    it('should normalize categoryId to category_id in update payload', async () => {
-      const updateWithCamelCase = { categoryId: 3 };
-      const expectedPayload = { category_id: 3 };
+    it('should update product with categoryId payload successfully', async () => {
+      const updateWithCategoryId = { categoryId: 3 };
 
-      api.patch.mockResolvedValueOnce({ data: [{ ...mockSingleProduct, category_id: 3 }] });
+      api.patch.mockResolvedValueOnce({ data: [{ ...mockSingleProduct, categoryId: 3 }] });
 
-      await updateProduct(1, updateWithCamelCase);
+      await updateProduct(1, updateWithCategoryId);
 
-      expect(api.patch).toHaveBeenCalledWith('/products?id=eq.1', expectedPayload);
+      expect(api.patch).toHaveBeenCalledWith('/products?id=eq.1', updateWithCategoryId);
     });
 
     it('should throw RLS policy error when response data is empty due to permission restriction', async () => {
