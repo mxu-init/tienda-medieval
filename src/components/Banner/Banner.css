@@ -1,55 +1,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&display=swap');
 
-.siteBannerWoodContainer {
+.dynamicBannerContainer {
     position: relative;
-    max-width: 980px;
-    margin: 24px auto;
-    background-color: #19120e;
-    background-image: linear-gradient(180deg, #281d17 0%, #1a130e 55%, #120c09 100%);
-    border: 2px solid #5a422a;
-    border-bottom: 2px solid #6c1613;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.75), inset 0 0 35px rgba(0, 0, 0, 0.6);
-    padding: 12px;
-    border-radius: 2px;
+    max-width: 960px;
+    margin: 30px auto;
+    background: #dfceb3;
+    background-image: radial-gradient(circle at 50% 50%, #e8d9c2 0%, #d5c3a5 100%);
+    border: 1px solid #73593b;
+    box-shadow: inset 0 0 35px rgba(85, 60, 30, 0.14), 0 8px 24px rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    border-radius: 0;
 }
 
-.bannerGoldFrame {
-    border: 1px solid rgba(212, 175, 106, 0.35);
-    padding: 24px 28px 28px 28px;
-    background: rgba(0, 0, 0, 0.2);
+.bannerOuterFrame {
+    border: 1px solid #73593b;
+    padding: 24px 28px;
+    background: transparent;
     position: relative;
-}
-
-.bannerRibbonHeader {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: -36px auto 20px auto;
-    width: 280px;
-    height: 54px;
-}
-
-.bannerRibbonImage {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: fill;
-    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.6));
-}
-
-.bannerRibbonTitle {
-    position: relative;
-    z-index: 1;
-    font-family: 'Cinzel', serif;
-    font-size: 1.05rem;
-    font-weight: 700;
-    color: #2b180a;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    margin: -4px 0 0 0;
-    text-shadow: 0 1px 1px rgba(255, 235, 190, 0.5);
 }
 
 .bannerCardActive {
@@ -57,20 +24,20 @@
     align-items: center;
     gap: 36px;
     text-align: left;
-    animation: bannerFadeIn 0.4s ease-in-out;
+    animation: fadeIn 0.4s ease-in-out;
 }
 
 .bannerImageWrapper {
-    flex: 0 0 280px;
-    height: 280px;
-    background: radial-gradient(circle at 50% 45%, #2a1f18 0%, #150e0a 100%);
-    border: 1px solid rgba(212, 175, 106, 0.4);
-    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.7), 0 4px 12px rgba(0, 0, 0, 0.4);
+    flex: 0 0 300px;
+    height: 300px;
+    background: radial-gradient(circle at 50% 45%, #d9c4a5 0%, #beaa8b 100%);
+    border: 1px solid rgba(115, 89, 59, 0.35);
+    box-shadow: inset 0 0 20px rgba(70, 50, 20, 0.15);
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 16px;
-    border-radius: 2px;
+    border-radius: 0;
     overflow: hidden;
 }
 
@@ -78,12 +45,12 @@
     width: 100%;
     height: 100%;
     object-fit: contain;
-    filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.6));
+    filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.3));
     transition: transform 0.3s ease;
 }
 
 .bannerImageWrapper:hover .bannerImage {
-    transform: scale(1.05);
+    transform: scale(1.03);
 }
 
 .bannerInfo {
@@ -97,53 +64,51 @@
     font-family: 'Cinzel', serif;
     font-size: 0.85rem;
     font-weight: 600;
-    color: #d4af6a;
+    color: #8c704b;
     text-transform: uppercase;
     letter-spacing: 3px;
-    margin-bottom: 10px;
+    margin-bottom: 12px;
     display: block;
 }
 
 .productTitle {
     font-family: 'Cinzel', serif;
-    font-size: 1.85rem;
+    font-size: 1.9rem;
     font-weight: 800;
-    color: #ebd7b9;
-    margin: 0 0 12px 0;
-    line-height: 1.25;
+    color: #1e130a;
+    margin: 0 0 14px 0;
+    line-height: 1.2;
     text-transform: uppercase;
     letter-spacing: 0.5px;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
 }
 
 .productPrice {
     font-family: 'Cinzel', serif;
-    margin: 0 0 22px 0;
-    color: #c4ab85;
+    margin: 0 0 24px 0;
+    color: #4a3826;
     display: flex;
     align-items: baseline;
-    gap: 10px;
+    gap: 8px;
 }
 
 .priceAmount {
-    font-size: 1.6rem;
+    font-size: 1.55rem;
     font-weight: 700;
-    color: #f5e6be;
-    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.9);
+    color: #1e130a;
 }
 
 .priceCurrency {
     font-size: 0.78rem;
-    font-weight: 600;
+    font-weight: 500;
     letter-spacing: 2px;
-    color: #d4af6a;
+    color: #6b5238;
     text-transform: uppercase;
 }
 
 .bannerActions {
     display: flex;
     align-items: center;
-    gap: 14px;
+    gap: 10px;
     margin-bottom: 22px;
 }
 
@@ -151,69 +116,68 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    height: 40px;
+    height: 38px;
     background: #6c1613;
     color: #ebd7b9;
-    padding: 0 24px;
+    padding: 0 22px;
     text-decoration: none;
     font-family: 'Cinzel', serif;
     font-size: 0.82rem;
     font-weight: 700;
     letter-spacing: 1.5px;
-    border: 1px solid #8c704b;
-    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.5);
+    border: 1px solid #3d0a09;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
     transition: all 0.2s ease;
-    border-radius: 2px;
+    border-radius: 0;
     cursor: pointer;
 }
 
 .bannerButton:hover {
     background: #851c18;
     color: #ffffff;
-    border-color: #d4af6a;
-    box-shadow: 0 4px 12px rgba(108, 22, 19, 0.5), 0 0 8px rgba(212, 175, 106, 0.3);
+    border-color: #4a0c0a;
+    box-shadow: 0 4px 10px rgba(108, 22, 19, 0.35);
     transform: translateY(-1px);
 }
 
 .arrowControls {
     display: flex;
-    gap: 8px;
+    gap: 6px;
 }
 
 .navArrowBtn {
-    width: 40px;
-    height: 40px;
-    background: #231811;
+    width: 38px;
+    height: 38px;
+    background: transparent;
     border: 1px solid #73593b;
-    color: #ebd7b9;
-    font-size: 1.2rem;
+    color: #2e1d0f;
+    font-size: 1.1rem;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
     transition: all 0.2s ease;
-    border-radius: 2px;
+    border-radius: 0;
     font-family: 'Cinzel', serif;
     line-height: 1;
 }
 
 .navArrowBtn:hover {
-    background: #332319;
-    border-color: #d4af6a;
-    color: #d4af6a;
-    box-shadow: 0 0 8px rgba(212, 175, 106, 0.25);
+    background: rgba(108, 22, 19, 0.08);
+    border-color: #6c1613;
+    color: #6c1613;
 }
 
 .bannerIndicators {
     display: flex;
     align-items: center;
-    gap: 12px;
-    margin-top: 4px;
+    gap: 10px;
+    margin-top: 2px;
 }
 
 .indicatorDot {
-    width: 10px;
-    height: 10px;
+    width: 9px;
+    height: 9px;
     background: transparent;
     border: 1px solid #73593b;
     transform: rotate(45deg);
@@ -222,18 +186,13 @@
     transition: all 0.2s ease;
 }
 
-.indicatorDot:hover {
-    border-color: #d4af6a;
-}
-
 .activeDot {
-    background: #d4af6a;
-    border-color: #f5e6be;
-    box-shadow: 0 0 8px rgba(212, 175, 106, 0.6);
-    transform: rotate(45deg) scale(1.15);
+    background: #6c1613;
+    border-color: #6c1613;
+    transform: rotate(45deg) scale(1.1);
 }
 
-@keyframes bannerFadeIn {
+@keyframes fadeIn {
     from {
         opacity: 0.4;
         transform: translateY(3px);
@@ -244,42 +203,11 @@
     }
 }
 
-.bannerLoadingState,
-.bannerErrorState {
+.loadingState,
+.errorState {
     text-align: center;
     padding: 40px;
     font-family: 'Cinzel', serif;
-    font-size: 1.15rem;
-    color: #ebd7b9;
-    background: #19120e;
-    border: 2px solid #5a422a;
-    margin: 24px auto;
-    max-width: 980px;
-}
-
-@media (max-width: 768px) {
-    .bannerCardActive {
-        flex-direction: column;
-        text-align: center;
-        gap: 20px;
-    }
-
-    .bannerImageWrapper {
-        flex: 0 0 220px;
-        width: 220px;
-        height: 220px;
-    }
-
-    .bannerInfo {
-        align-items: center;
-    }
-
-    .bannerActions {
-        justify-content: center;
-        flex-wrap: wrap;
-    }
-
-    .bannerIndicators {
-        justify-content: center;
-    }
+    font-size: 1.2rem;
+    color: #4a3826;
 }
