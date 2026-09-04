@@ -1,5 +1,5 @@
 import parchmentImg from '../../assets/img/parchment.jpg';
-import p1Img from '../../assets/img/p1.jpg';
+import p1Img from '../../assets/img/sword.jpg';
 import p2Img from '../../assets/img/p2.jpg';
 import p3Img from '../../assets/img/p3.jpg';
 import p4Img from '../../assets/img/p4.jpg';

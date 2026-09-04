@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { getTopExpensiveProducts } from '../../services/productService';
 import ribbonImg from '../../assets/img/ribbon.png';
-import p1Img from '../../assets/img/p1.jpg';
+import p1Img from '../../assets/img/sword.jpg';
 import './Banner.css';
 
 const maxBannerItems = 5;
