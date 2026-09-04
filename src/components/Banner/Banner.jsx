@@ -117,7 +117,11 @@ const BannerComp = () => {
                         </p>
 
                         <div className="bannerActions">
-                            <Link to={`/product/${activeProduct.id}`} className="bannerButton">
+                            <Link
+                                to="/store"
+                                state={{ selectedProductId: activeProduct.id, selectedProduct: activeProduct }}
+                                className="bannerButton"
+                            >
                                 VER EN LA TIENDA
                             </Link>
                             <div className="arrowControls">

@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import {
   getProducts,
   createProduct,
@@ -15,6 +16,7 @@ import lanternImg from '../../assets/img/lantern.png';
 import './Products.css';
 
 const Products = () => {
+  const location = useLocation();
   const [products, setProducts] = useState([]);
   const [categories, setCategories] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -56,6 +58,29 @@ const Products = () => {
       controller.abort();
     };
   }, []);
+
+  useEffect(() => {
+    const targetProductId = location.state?.selectedProductId;
+    const targetProductPassed = location.state?.selectedProduct;
+
+    if (!targetProductId && !targetProductPassed) return;
+
+    if (products.length > 0) {
+      const foundProduct = products.find((p) => String(p.id) === String(targetProductId));
+      if (foundProduct) {
+        setSelectedProduct(foundProduct);
+        setModalMode('view');
+        setIsModalOpen(true);
+        return;
+      }
+    }
+
+    if (targetProductPassed) {
+      setSelectedProduct(targetProductPassed);
+      setModalMode('view');
+      setIsModalOpen(true);
+    }
+  }, [products, location.state]);
 
   const categoryNames = [
     'Todo',
