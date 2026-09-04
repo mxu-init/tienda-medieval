@@ -1,20 +1,24 @@
 import { useEffect, useState } from 'react';
-import axios from 'axios';
 import { Link } from 'react-router-dom';
+import { getTopExpensiveProducts } from '../../services/productService';
 import ribbonImg from '../../assets/img/ribbon.png';
+import p1Img from '../../assets/img/p1.jpg';
 import './Banner.css';
 
-const apiUrl = 'https://api.escuelajs.co/api/v1/products';
 const maxBannerItems = 5;
 const carouselIntervalMs = 3000;
 
-const sortProductsByPriceDescending = (products) => {
-    return [...products].sort((firstProduct, secondProduct) => secondProduct.price - firstProduct.price);
-};
-
-const getTopExpensiveProducts = (products, limit) => {
-    const sortedProducts = sortProductsByPriceDescending(products);
-    return sortedProducts.slice(0, limit);
+const getImageUrl = (images) => {
+    if (Array.isArray(images) && images.length > 0) {
+        let cleanUrl = images[0];
+        if (typeof cleanUrl === 'string') {
+            cleanUrl = cleanUrl.replace(/^["'[]+/, '').replace(/["'\]]+$/, '');
+            if (cleanUrl.startsWith('http')) {
+                return cleanUrl;
+            }
+        }
+    }
+    return p1Img;
 };
 
 const BannerComp = () => {
@@ -29,11 +33,10 @@ const BannerComp = () => {
 
         const fetchBannerProducts = async () => {
             try {
-                const response = await axios.get(apiUrl, { signal: abortController.signal });
-                const expensiveItems = getTopExpensiveProducts(response.data, maxBannerItems);
-                setPremiumProducts(expensiveItems);
+                const expensiveItems = await getTopExpensiveProducts(maxBannerItems, abortController.signal);
+                setPremiumProducts(expensiveItems || []);
             } catch (error) {
-                if (!axios.isCancel(error)) {
+                if (error.name !== 'CanceledError' && error.name !== 'AbortError') {
                     setHasError(true);
                 }
             } finally {
@@ -101,9 +104,13 @@ const BannerComp = () => {
                 <article key={activeProduct.id} className="bannerCardActive">
                     <div className="bannerImageWrapper">
                         <img
-                            src={activeProduct.images[0]}
+                            src={getImageUrl(activeProduct.images)}
                             alt={activeProduct.title}
                             className="bannerImage"
+                            onError={(e) => {
+                                e.target.onerror = null;
+                                e.target.src = p1Img;
+                            }}
                         />
                     </div>
                     <div className="bannerInfo">

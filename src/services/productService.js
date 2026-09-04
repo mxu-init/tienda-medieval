@@ -13,6 +13,19 @@ export const getProducts = async (signal) => {
   }
 };
 
+export const getTopExpensiveProducts = async (limit = 5, signal) => {
+  try {
+    const response = await api.get(`/products?select=*,category:categories(*)&order=price.desc&limit=${limit}`, { signal });
+    return response.data;
+  } catch (error) {
+    if (error.name === 'CanceledError' || error.name === 'AbortError') {
+      throw error;
+    }
+    const message = error.response?.data?.message || 'Error al obtener las mercancías más costosas del catálogo.';
+    throw new Error(message, { cause: error });
+  }
+};
+
 export const getProductById = async (id, signal) => {
   try {
     const response = await api.get(`/products?id=eq.${id}&select=*,category:categories(*)`, { signal });
