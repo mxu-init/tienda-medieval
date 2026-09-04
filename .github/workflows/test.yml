@@ -25,4 +25,4 @@ jobs:
         run: npm ci
 
       - name: Execute Vitest
-        run: npm test
+        run: npm test -- --run
