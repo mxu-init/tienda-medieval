@@ -1,8 +1,8 @@
 import parchmentImg from '../../assets/img/parchment.jpg';
 import p1Img from '../../assets/img/sword.jpg';
-import p2Img from '../../assets/img/p2.jpg';
-import p3Img from '../../assets/img/p3.jpg';
-import p4Img from '../../assets/img/p4.jpg';
+import p2Img from '../../assets/img/helmet.jpg';
+import p3Img from '../../assets/img/oldBook.jpg';
+import p4Img from '../../assets/img/bottle.jpg';
 import './ProductCard.css';
 
 const fallbackImages = [p1Img, p2Img, p3Img, p4Img];
