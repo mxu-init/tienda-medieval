@@ -91,6 +91,8 @@ El proyecto cuenta con una suite completa de unit tests aislados e instantáneos
 
 ### 🚀 Instrucciones para Ejecutar los Tests
 
+[![Test Suite](https://github.com/mxu-init/tienda-medieval/actions/workflows/test.yml/badge.svg)](https://github.com/mxu-init/tienda-medieval/actions/workflows/test.yml)
+
 ![Pruebas unitarias](./src/assets/img/test.png)
 
 - **Ejecutar tests en modo de observación (Watch Mode):**
