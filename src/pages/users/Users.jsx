@@ -232,8 +232,7 @@ const Users = () => {
 
               <div className="vellumBox usersIntroBox">
                 <p>
-                  Libro de registro de los súbditos inscritos en el mercado del reino, copiado del
-                  archivo de FakeAPI Platzi.
+                  Libro de registro de los súbditos inscritos en el mercado del reino, conectado con nuestra propia API que hemos creado e implementado.
                 </p>
               </div>
 
