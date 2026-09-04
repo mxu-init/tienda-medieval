@@ -143,7 +143,7 @@ tienda-medieval/
 │   │   ├── api.js         # Instancia Axios centralizada con interceptores JWT
 │   │   ├── productService.js # Servicio de productos y categorías (Supabase REST)
 │   │   ├── userService.js    # Servicio de usuarios (Supabase REST)
-│   │   └── WidgetServices.jsx # Integración API Clima (Open-Meteo)
+│   │   └── WeatherServices.jsx # Integración API Clima (Open-Meteo)
 │   ├── tests/
 │   │   ├── mocks/
 │   │   │   └── mockData.js   # Fixtures de prueba centralizadas

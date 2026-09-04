@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import {getAllWeather} from '../../services/WidgetServices.jsx';
+import { getAllWeather } from '../../services/WeatherServices.jsx';
 
 
 import './Weatherwidget.css';
@@ -89,13 +89,13 @@ const WeatherWidget = ({ place = '' }) => {
     const [weather, setWeather] = useState(null);
     const [hasError, setHasError] = useState(false);
 
-    
+
     useEffect(() => {
         const clockTimer = setInterval(() => setNow(new Date()), 60000);
         return () => clearInterval(clockTimer);
     }, []);
 
-    
+
     useEffect(() => {
         const fetchWeather = async ({ latitude, longitude }) => {
             try {
