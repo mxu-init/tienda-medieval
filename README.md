@@ -8,12 +8,13 @@
 ![Supabase](https://img.shields.io/badge/Supabase-REST_API-3ECF8E?style=for-the-badge&logo=supabase)
 ![Vercel](https://img.shields.io/badge/Vercel-Deployed-000000?style=for-the-badge&logo=vercel)
 ![Theme](https://img.shields.io/badge/Tema-Medieval-8C1C18?style=for-the-badge)
+![Jira](https://img.shields.io/badge/Jira-%230052CC.svg?style=for-the-badge&logo=jira&logoColor=white)
 
 Proyecto desarrollado para el **Bootcamp**, consistente en una plataforma e-commerce inmersiva con temática **Medieval**. **Mercatum Regni** es el gremio virtual donde mercaderes y artesanos exponen sus mercancías más preciadas desde 1024.
 
 ---
 
-## 📌 Enlaces del Proyecto (Entregables)
+## 📌 Enlaces del Proyecto
 
 - 🎨 **Diseño en Lovable:** [Enlace público a Lovable (Modo Lectura)](https://arcane-merchant-script.lovable.app/)
 - 🚀 **Despliegue en Vercel:** [Mercatum Regni en Vercel](https://tienda-medieval.vercel.app/)
@@ -33,7 +34,7 @@ El proyecto sigue una arquitectura web moderna con **React** y **Vite**, complem
 4. **Header Interactivo con Clima:** Widget en tiempo real que consume la API del clima para mostrar la temperatura y el estado del tiempo actual.
 5. **Capa de Servicios y Pruebas Unitarias:** Capa de servicios aislada para la API de Supabase y suite completa de pruebas unitarias automatizadas con **Vitest** y **Testing Library**.
 6. **Buenas Prácticas de Git:** Uso riguroso de **Conventional Commits** y **Conventional Branches**.
-7. **Gestión Ágil:** Pesaje de tareas e historias de usuario en **Jira**.
+7. **Gestión Ágil:** Gestión y pesaje de tareas e historias de usuario en **Jira**.
 8. **Despliegue:** Integración continua y hosting en **Vercel**.
 
 ---
