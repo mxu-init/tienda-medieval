@@ -33,5 +33,9 @@
     "jsdom": "^30.0.1",
     "vite": "^8.2.2",
     "vitest": "^5.0.0"
+  },
+  "scripts": {
+    "test": "vitest run src/tests/",
+    "test:watch": "vitest src/tests/"
   }
 }
