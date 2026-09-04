@@ -120,12 +120,12 @@ const Home = () => {
                                         viajero que cruce nuestras puertas.
                                     </p>
                                     <div className="actionButtonsGroup">
-                                        <Link to="/tienda" className="inkBtnLink">
+                                        <Link to="/store" className="inkBtnLink">
                                             <button type="button" className="inkButton inkButtonSolid">
                                                 Visitar la tienda
                                             </button>
                                         </Link>
-                                        <Link to="/vendedores" className="inkBtnLink">
+                                        <Link to="/salespeople" className="inkBtnLink">
                                             <button type="button" className="inkButton inkButtonOutline">
                                                 Conocer el gremio
                                             </button>
