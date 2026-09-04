@@ -1,5 +1,5 @@
 # ⚔️ Mercatum Regni — Tienda Medieval en Línea 🛡️
-![Screenshoot](./src/assets/img/screenshootTienda.png)
+![Screenshoot](./src/assets/img/screenshootStore.png)
 
 ![React](https://img.shields.io/badge/React-19.2-61DAFB?style=for-the-badge&logo=react)
 ![Vite](https://img.shields.io/badge/Vite-8.2-646CFF?style=for-the-badge&logo=vite)
