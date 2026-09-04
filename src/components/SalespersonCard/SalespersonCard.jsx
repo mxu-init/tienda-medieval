@@ -27,7 +27,7 @@ const SalespersonCard = ({ seller }) => {
                 </div>
             </dl>
             <Link
-                to={`/products?category=${encodeURIComponent(seller.category)}`}
+                to="/store"
                 className="viewWorkshopBtn"
             >
                 Ver taller
