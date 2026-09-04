@@ -227,6 +227,12 @@ Para ejecutar el proyecto en tu entorno local, sigue estos pasos:
 
 ## 👥 Integrantes del Proyecto
 
+<a href="https://github.com/mxu-init/tienda-medieval/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=mxu-init/tienda-medieval" />
+</a>
+ 
+
+ 
 | Nombre | GitHub |
 | :--- | :--- |
 | **Mauricio Rodríguez** | [@mxu-init](https://github.com/mxu-init) |
